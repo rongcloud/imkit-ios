@@ -1,23 +1,23 @@
 
 
-###1. 设计说明
+### 1. 设计说明
 IMKit SDK 5.0 及以上版本开放了源代码，支持以源码形式进行调试与集成，源码集成参考
 
-::: tip 温馨提示：
-对于开发者自定义 UI 的需求，有以下建议
+***温馨提示：***
+
+对于开发者自定义 UI 的需求，有以下建议:
 
 1.不建议直接修改源码内容，防止后续源码升级将修改内容覆盖
 
 2.建议通过继承重写某些类与自身逻辑不一致的方法，来增加新方法以扩展自身的业务逻辑
 
 3.建议使用 SDK 对外暴露的接口，如果调用私有接口可能会出现版本升级引起私有接口变更
-:::
 
-####1.1 目录介绍
+
+#### 1.1 目录介绍
 
 IMKit 目录以及对应功能介绍（以下说明中的目录对应 IMKit 5.0.0 版本)
-
-![](./Images/kit_directory.png)
+![](https://github.com/rongcloud/imkit-ios/blob/main/Images/kit_directory.png)
 
 以下着重介绍 RongIMKit 目录
 
@@ -48,11 +48,11 @@ RongIMKit
 │       └── MJRefresh (第三方)
 └── Resource (语言包，资源文件)
 ```
-####1.2 IMKit 主要类介绍：
+#### 1.2 IMKit 主要类介绍：
 
-#####会话列表：
+##### 会话列表：
 
-![](./Images/chat_list.png) 
+![](https://github.com/rongcloud/imkit-ios/blob/main/Images/chat_list.png) 
 
 ```objectivec
 ConversationList
@@ -69,9 +69,9 @@ ConversationList
 │       └── RCConversationCellUpdateInfo (会话更新 model)
 ```
 
-#####会话：
+##### 会话：
 
-![](./Images/chat.png)
+![](https://github.com/rongcloud/imkit-ios/blob/main/Images/chat.png)
 
 ```objectivec
 Conversation
@@ -105,5 +105,5 @@ Conversation
 ├── Voice (语音)
 └── Reference (引用消息相关)
 ```
-###2. 源码集成
+### 2. 源码集成
 参考[官网源码集成文档](https://docs.rongcloud.cn/v4/5X/views/im/ui/guide/quick/include/ios.html#%20IMKit%20源码集成)
