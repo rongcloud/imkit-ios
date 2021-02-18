@@ -1,4 +1,5 @@
-
+### 0. 历史版本
+[历史版本记录](https://github.com/rongcloud/imkit-ios/tags)
 
 ### 1. 设计说明
 IMKit SDK 5.0 及以上版本开放了源代码，支持以源码形式进行调试与集成，源码集成参考
