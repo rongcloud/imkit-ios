@@ -70,6 +70,17 @@
  @return                image
  */
 + (UIImage *)generateThumbnail:(UIImage *)image targetSize:(CGSize)targetSize;
+
+/*!
+ generate thumbnail from image
+
+ @param image           image
+ @param targetSize      targetSize
+ @param percent         percent
+
+ @return                image
+ */
++ (UIImage *)generateThumbnail:(UIImage *)image targetSize:(CGSize)targetSize percent:(CGFloat)percent;
 /*!
  compressedImageWithMaxDataLength
 

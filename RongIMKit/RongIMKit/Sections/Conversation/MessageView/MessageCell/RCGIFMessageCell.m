@@ -112,11 +112,11 @@
     if (localPath && [RCFileUtility isFileExist:localPath]) {
         [self showGifImageView:localPath];
     } else {
-        self.messageContentView.userInteractionEnabled = NO;
         if (gifMessage.remoteUrl.length > 0 && gifMessage.gifDataSize > maxAutoSize * 1024) {
             //超过限制，需要点击下载
             [self showView:self.needLoadImageView];
         } else {
+            self.messageContentView.userInteractionEnabled = NO;
             //没超过限制，自动下载
             [self downLoadGif];
         }

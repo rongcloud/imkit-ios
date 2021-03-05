@@ -10,6 +10,7 @@
 #import "RCExtensionService.h"
 #import <AVFoundation/AVFoundation.h>
 #import "RCKitConfig.h"
+#import "RCKitCommonDefine.h"
 
 static RCVoiceRecorder *rcVoiceRecorderHandler = nil;
 static RCVoiceRecorder *rcHQVoiceRecorderHandler = nil;

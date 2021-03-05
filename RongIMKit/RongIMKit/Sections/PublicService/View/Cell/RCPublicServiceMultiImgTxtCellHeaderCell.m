@@ -11,6 +11,7 @@
 #import "RCPublicServiceViewConstants.h"
 #import "RCloudImageView.h"
 #import "RCKitConfig.h"
+#import "RCKitCommonDefine.h"
 
 @interface RCPublicServiceMultiImgTxtCellHeaderCell ()
 @property (nonatomic, strong) RCloudImageView *headerImageView;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RongIMKit/RongIMKit.h>
+#import "RongIMKit.h"
 #import "RCGIFImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN

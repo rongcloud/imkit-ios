@@ -94,7 +94,7 @@
 
 - (void)beginFetchPoisOfCurrentLocation {
     if (!self.completion) {
-        DebugLog(@"请先使用函数setOnPoiSearchResult来设置POI搜索结果的回调block");
+        DebugLog(@"Use the setOnPoiSearchResult function to set the callback block of POI search results");
         return;
     }
 }
@@ -185,42 +185,6 @@
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
-//  scaledHeight = imageHeight * scaleFactor;
-
-//这个尺寸在生成缩略图的地方有定义，还有发送位置消息时对尺寸有裁剪。如果修改尺寸，需要把对应的地方同时修改
-#define TARGET_LOCATION_THUMB_WIDTH 408
-#define TARGET_LOCATION_THUMB_HEIGHT 240
-
-    CGRect rect;
-
-    CGSize imageSize = image.size;
-    CGSize targetSize;
-    if (imageSize.width < TARGET_LOCATION_THUMB_WIDTH || imageSize.height < TARGET_LOCATION_THUMB_HEIGHT) {
-        CGFloat widthFactor = imageSize.width / TARGET_LOCATION_THUMB_WIDTH;
-        CGFloat heightFactor = imageSize.height / TARGET_LOCATION_THUMB_HEIGHT;
-
-        if (widthFactor < heightFactor) {
-            targetSize.width = imageSize.width;
-            targetSize.height = TARGET_LOCATION_THUMB_HEIGHT * imageSize.width / TARGET_LOCATION_THUMB_WIDTH;
-        } else {
-            targetSize.width = TARGET_LOCATION_THUMB_WIDTH * imageSize.height / TARGET_LOCATION_THUMB_HEIGHT;
-            targetSize.height = imageSize.height;
-        }
-    } else {
-        targetSize = CGSizeMake(TARGET_LOCATION_THUMB_WIDTH, TARGET_LOCATION_THUMB_HEIGHT);
-    }
-
-    rect.origin.x = (imageSize.width - targetSize.width) / 2 * image.scale;
-    rect.origin.y = (imageSize.height - targetSize.height) / 2 * image.scale;
-    rect.size = targetSize;
-    rect.size.height *= image.scale;
-    rect.size.width *= image.scale;
-
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
-    // or use the UIImage wherever you like
-    image = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
     return image;
 }
 @end

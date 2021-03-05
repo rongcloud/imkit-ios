@@ -95,7 +95,99 @@
 		454267991D3C7B300043E009 /* RCRecallMessageImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454267981D3C7B300043E009 /* RCRecallMessageImageView.m */; };
 		457461371D40C83600E01987 /* RCFileMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 457461361D40C83600E01987 /* RCFileMessageCell.m */; };
 		4574613A1D40D85800E01987 /* RCFileMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 457461351D40C80B00E01987 /* RCFileMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		467269CA243D6E2800637FFF /* RongIMKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269C9243D6E2800637FFF /* RongIMKitTests.m */; };
 		467269CC243D6E2800637FFF /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5146EC5C1A650C82005C8B39 /* RongIMKit.framework */; };
+		46726A4A243D6E4B00637FFF /* RCCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D2243D6E4A00637FFF /* RCCommonTests.m */; };
+		46726A4B243D6E4B00637FFF /* RCloudImageLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D4243D6E4A00637FFF /* RCloudImageLoaderTests.m */; };
+		46726A4C243D6E4B00637FFF /* RCloudCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D5243D6E4A00637FFF /* RCloudCacheTests.m */; };
+		46726A4D243D6E4B00637FFF /* RCloudImageLoadConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D6243D6E4A00637FFF /* RCloudImageLoadConnectionTests.m */; };
+		46726A4E243D6E4B00637FFF /* RCloudImageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D7243D6E4A00637FFF /* RCloudImageViewTests.m */; };
+		46726A4F243D6E4B00637FFF /* RCloudMediaManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269D8243D6E4A00637FFF /* RCloudMediaManagerTests.m */; };
+		46726A51243D6E4B00637FFF /* test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 467269DB243D6E4A00637FFF /* test.jpeg */; };
+		46726A52243D6E4B00637FFF /* RCDestructImageBrowseControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269DE243D6E4A00637FFF /* RCDestructImageBrowseControllerTests.m */; };
+		46726A53243D6E4B00637FFF /* RCGIFPreviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269DF243D6E4A00637FFF /* RCGIFPreviewViewControllerTests.m */; };
+		46726A54243D6E4B00637FFF /* wavDec.wav in Resources */ = {isa = PBXBuildFile; fileRef = 467269E0243D6E4A00637FFF /* wavDec.wav */; };
+		46726A55243D6E4B00637FFF /* RCReeditMessageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E2243D6E4A00637FFF /* RCReeditMessageManagerTests.m */; };
+		46726A56243D6E4B00637FFF /* RCMJRefreshBackFooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E3243D6E4A00637FFF /* RCMJRefreshBackFooterTests.m */; };
+		46726A57243D6E4B00637FFF /* RCSystemSoundPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E4243D6E4A00637FFF /* RCSystemSoundPlayerTests.m */; };
+		46726A58243D6E4B00637FFF /* RCActiveWheelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E5243D6E4A00637FFF /* RCActiveWheelTests.m */; };
+		46726A59243D6E4B00637FFF /* UIScrollView+RCMJExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E6243D6E4A00637FFF /* UIScrollView+RCMJExtensionTests.m */; };
+		46726A5A243D6E4B00637FFF /* RCKitUtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E7243D6E4A00637FFF /* RCKitUtilityTests.m */; };
+		46726A5B243D6E4B00637FFF /* RCHQVoiceMsgDownloadManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E8243D6E4A00637FFF /* RCHQVoiceMsgDownloadManagerTests.m */; };
+		46726A5C243D6E4B00637FFF /* RCMBProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269E9243D6E4A00637FFF /* RCMBProgressHUDTests.m */; };
+		46726A5D243D6E4B00637FFF /* RCLocalNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269EA243D6E4A00637FFF /* RCLocalNotificationTests.m */; };
+		46726A5E243D6E4B00637FFF /* RCAdminEvaluationViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269EB243D6E4A00637FFF /* RCAdminEvaluationViewTests.m */; };
+		46726A5F243D6E4B00637FFF /* RCGIFMessageProgressViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269EC243D6E4A00637FFF /* RCGIFMessageProgressViewTests.m */; };
+		46726A60243D6E4B00637FFF /* RCSightMessageProgressViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269ED243D6E4A00637FFF /* RCSightMessageProgressViewTests.m */; };
+		46726A61243D6E4B00637FFF /* RCAttributedLabelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269EE243D6E4A00637FFF /* RCAttributedLabelTests.m */; };
+		46726A62243D6E4B00637FFF /* RCGIFUtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269EF243D6E4A00637FFF /* RCGIFUtilityTests.m */; };
+		46726A63243D6E4B00637FFF /* RCVoicePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F0243D6E4A00637FFF /* RCVoicePlayerTests.m */; };
+		46726A64243D6E4B00637FFF /* RCCustomerServiceMessageModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F2243D6E4A00637FFF /* RCCustomerServiceMessageModelTests.m */; };
+		46726A65243D6E4B00637FFF /* RCOldMessageNotificationMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F3243D6E4A00637FFF /* RCOldMessageNotificationMessageTests.m */; };
+		46726A66243D6E4B00637FFF /* RCConversationModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F4243D6E4A00637FFF /* RCConversationModelTests.m */; };
+		46726A67243D6E4B00637FFF /* RCGIFImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F6243D6E4A00637FFF /* RCGIFImageTests.m */; };
+		46726A68243D6E4B00637FFF /* RCGifImageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F7243D6E4A00637FFF /* RCGifImageViewTests.m */; };
+		46726A69243D6E4B00637FFF /* RCSightCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F8243D6E4A00637FFF /* RCSightCollectionViewTests.m */; };
+		46726A6A243D6E4B00637FFF /* RCMJRefreshBackNormalFooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269F9243D6E4A00637FFF /* RCMJRefreshBackNormalFooterTests.m */; };
+		46726A6B243D6E4B00637FFF /* RCRobotEvaluationViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269FA243D6E4A00637FFF /* RCRobotEvaluationViewTests.m */; };
+		46726A6C243D6E4B00637FFF /* RCMessageBubbleTipViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269FB243D6E4A00637FFF /* RCMessageBubbleTipViewTests.m */; };
+		46726A6D243D6E4B00637FFF /* RCActionSheetViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269FC243D6E4A00637FFF /* RCActionSheetViewTests.m */; };
+		46726A6E243D6E4B00637FFF /* RCCustomIOSAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 467269FD243D6E4A00637FFF /* RCCustomIOSAlertViewTests.m */; };
+		46726A6F243D6E4B00637FFF /* rock.gif in Resources */ = {isa = PBXBuildFile; fileRef = 467269FE243D6E4A00637FFF /* rock.gif */; };
+		46726A70243D6E4C00637FFF /* RCSightPlayerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A02243D6E4B00637FFF /* RCSightPlayerControllerTests.m */; };
+		46726A71243D6E4C00637FFF /* RCSightFileBrowserViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A03243D6E4B00637FFF /* RCSightFileBrowserViewControllerTests.m */; };
+		46726A73243D6E4C00637FFF /* RCPublicServiceProfileViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A06243D6E4B00637FFF /* RCPublicServiceProfileViewControllerTests.m */; };
+		46726A74243D6E4C00637FFF /* RCPublicServiceListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A07243D6E4B00637FFF /* RCPublicServiceListViewControllerTests.m */; };
+		46726A75243D6E4C00637FFF /* RCPublicServiceSearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A08243D6E4B00637FFF /* RCPublicServiceSearchViewControllerTests.m */; };
+		46726A76243D6E4C00637FFF /* RCDestructCountDownButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A0A243D6E4B00637FFF /* RCDestructCountDownButtonTests.m */; };
+		46726A77243D6E4C00637FFF /* RCDestructGIFPreviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A0B243D6E4B00637FFF /* RCDestructGIFPreviewViewControllerTests.m */; };
+		46726A78243D6E4C00637FFF /* RCSettingViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A0D243D6E4B00637FFF /* RCSettingViewControllerTests.m */; };
+		46726A79243D6E4C00637FFF /* RCCombineMessagePreviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A0F243D6E4B00637FFF /* RCCombineMessagePreviewViewControllerTests.m */; };
+		46726A7A243D6E4C00637FFF /* RCCombineMessageUtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A10243D6E4B00637FFF /* RCCombineMessageUtilityTests.m */; };
+		46726A7B243D6E4C00637FFF /* RCForwardManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A11243D6E4B00637FFF /* RCForwardManagerTests.m */; };
+		46726A7C243D6E4C00637FFF /* RCCSLeaveMessageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A13243D6E4B00637FFF /* RCCSLeaveMessageControllerTests.m */; };
+		46726A7E243D6E4C00637FFF /* RCConversationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A16243D6E4B00637FFF /* RCConversationViewControllerTests.m */; };
+		46726A7F243D6E4C00637FFF /* RCFilePreviewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A17243D6E4B00637FFF /* RCFilePreviewViewControllerTests.m */; };
+		46726A80243D6E4C00637FFF /* RCSightSlideViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A18243D6E4B00637FFF /* RCSightSlideViewControllerTests.m */; };
+		46726A81243D6E4C00637FFF /* RCImageSlideControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A19243D6E4B00637FFF /* RCImageSlideControllerTests.m */; };
+		46726A82243D6E4C00637FFF /* RCConversationListViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A1A243D6E4B00637FFF /* RCConversationListViewControllerTests.m */; };
+		46726A83243D6E4C00637FFF /* RCConversationDetailContentViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A1B243D6E4B00637FFF /* RCConversationDetailContentViewTests.m */; };
+		46726A84243D6E4C00637FFF /* RCSightCollectionViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A1C243D6E4B00637FFF /* RCSightCollectionViewCellTests.m */; };
+		46726A85243D6E4C00637FFF /* RCConversationInfoCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A1E243D6E4B00637FFF /* RCConversationInfoCacheTests.m */; };
+		46726A86243D6E4C00637FFF /* RCUserInfoCacheManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A1F243D6E4B00637FFF /* RCUserInfoCacheManagerTests.m */; };
+		46726A87243D6E4C00637FFF /* RCloudFMResultSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A21243D6E4B00637FFF /* RCloudFMResultSetTests.m */; };
+		46726A88243D6E4C00637FFF /* RCFMDBQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A22243D6E4B00637FFF /* RCFMDBQueueTests.m */; };
+		46726A89243D6E4C00637FFF /* RCFMDBPoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A23243D6E4B00637FFF /* RCFMDBPoolTests.m */; };
+		46726A8A243D6E4C00637FFF /* RCloudFMDatabaseAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A24243D6E4B00637FFF /* RCloudFMDatabaseAdditionsTests.m */; };
+		46726A8B243D6E4C00637FFF /* RCUserInfoCacheDBHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A25243D6E4B00637FFF /* RCUserInfoCacheDBHelperTests.m */; };
+		46726A8C243D6E4C00637FFF /* RCFMDBTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A26243D6E4B00637FFF /* RCFMDBTestBase.m */; };
+		46726A8D243D6E4C00637FFF /* RCThreadSafeMutableDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A27243D6E4B00637FFF /* RCThreadSafeMutableDictionaryTests.m */; };
+		46726A8E243D6E4C00637FFF /* RCloudFMDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A28243D6E4B00637FFF /* RCloudFMDatabaseTests.m */; };
+		46726A8F243D6E4C00637FFF /* coverage-04.dtd in Resources */ = {isa = PBXBuildFile; fileRef = 46726A29243D6E4B00637FFF /* coverage-04.dtd */; };
+		46726A90243D6E4C00637FFF /* RongIMKitExtensionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A2B243D6E4B00637FFF /* RongIMKitExtensionManagerTests.m */; };
+		46726A91243D6E4C00637FFF /* RCIMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A2C243D6E4B00637FFF /* RCIMTests.m */; };
+		46726A92243D6E4C00637FFF /* RCTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A30243D6E4B00637FFF /* RCTestHelper.m */; };
+		46726A93243D6E4C00637FFF /* RCMethodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A31243D6E4B00637FFF /* RCMethodModel.m */; };
+		46726A95243D6E4C00637FFF /* RCPublicServiceProfileOwnerCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A36243D6E4B00637FFF /* RCPublicServiceProfileOwnerCellTests.m */; };
+		46726A96243D6E4C00637FFF /* RCPublicServiceProfileTelCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A37243D6E4B00637FFF /* RCPublicServiceProfileTelCellTests.m */; };
+		46726A97243D6E4C00637FFF /* RCPublicServiceMultiImgTxtCellContentCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A38243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellContentCellTests.m */; };
+		46726A98243D6E4C00637FFF /* RCPublicServiceProfilePlainCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A39243D6E4B00637FFF /* RCPublicServiceProfilePlainCellTests.m */; };
+		46726A99243D6E4C00637FFF /* RCCSLeaveMessagesCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3A243D6E4B00637FFF /* RCCSLeaveMessagesCellTests.m */; };
+		46726A9A243D6E4C00637FFF /* RCLocationMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3B243D6E4B00637FFF /* RCLocationMessageCellTests.m */; };
+		46726A9B243D6E4C00637FFF /* RCTipMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3C243D6E4B00637FFF /* RCTipMessageCellTests.m */; };
+		46726A9C243D6E4C00637FFF /* RCHQVoiceMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3D243D6E4B00637FFF /* RCHQVoiceMessageCellTests.m */; };
+		46726A9D243D6E4C00637FFF /* RCConversationSettingTableViewHeaderItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3E243D6E4B00637FFF /* RCConversationSettingTableViewHeaderItemTests.m */; };
+		46726A9E243D6E4C00637FFF /* RCCombineMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A3F243D6E4B00637FFF /* RCCombineMessageCellTests.m */; };
+		46726A9F243D6E4C00637FFF /* RCSightMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A40243D6E4B00637FFF /* RCSightMessageCellTests.m */; };
+		46726AA0243D6E4C00637FFF /* RCPublicServiceProfileRcvdMsgCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A41243D6E4B00637FFF /* RCPublicServiceProfileRcvdMsgCellTests.m */; };
+		46726AA1243D6E4C00637FFF /* RCConversationSettingTableViewHeaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A42243D6E4B00637FFF /* RCConversationSettingTableViewHeaderTests.m */; };
+		46726AA2243D6E4C00637FFF /* RCPublicServiceProfileUrlCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A43243D6E4B00637FFF /* RCPublicServiceProfileUrlCellTests.m */; };
+		46726AA3243D6E4C00637FFF /* RCPublicServiceMultiImgTxtCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A44243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellTests.m */; };
+		46726AA4243D6E4C00637FFF /* RCPublicServiceSearchHintCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A45243D6E4B00637FFF /* RCPublicServiceSearchHintCellTests.m */; };
+		46726AA5243D6E4C00637FFF /* RCVoiceMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A46243D6E4B00637FFF /* RCVoiceMessageCellTests.m */; };
+		46726AA6243D6E4C00637FFF /* RCConversationCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A47243D6E4B00637FFF /* RCConversationCellTests.m */; };
+		46726AA7243D6E4C00637FFF /* RCTextMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A48243D6E4B00637FFF /* RCTextMessageCellTests.m */; };
+		46726AA8243D6E4C00637FFF /* RCGIFMessageCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46726A49243D6E4B00637FFF /* RCGIFMessageCellTests.m */; };
 		4678886D243D709B00D302D5 /* RCConfig.plist in Frameworks */ = {isa = PBXBuildFile; fileRef = 46788868243D709B00D302D5 /* RCConfig.plist */; };
 		4678888A243DAAF900D302D5 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F849AE971DAD1F7E00E6599C /* RongCloud.bundle */; };
 		46B8E0151B8AC3930094DBCA /* RCOldMessageNotificationMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 46B8E0131B8AC3930094DBCA /* RCOldMessageNotificationMessage.h */; };
@@ -525,6 +617,103 @@
 		457461351D40C80B00E01987 /* RCFileMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCFileMessageCell.h; sourceTree = "<group>"; };
 		457461361D40C83600E01987 /* RCFileMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFileMessageCell.m; sourceTree = "<group>"; };
 		467269C7243D6E2800637FFF /* RongIMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RongIMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		467269C9243D6E2800637FFF /* RongIMKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RongIMKitTests.m; sourceTree = "<group>"; };
+		467269CB243D6E2800637FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		467269D2243D6E4A00637FFF /* RCCommonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCommonTests.m; sourceTree = "<group>"; };
+		467269D4243D6E4A00637FFF /* RCloudImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudImageLoaderTests.m; sourceTree = "<group>"; };
+		467269D5243D6E4A00637FFF /* RCloudCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudCacheTests.m; sourceTree = "<group>"; };
+		467269D6243D6E4A00637FFF /* RCloudImageLoadConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudImageLoadConnectionTests.m; sourceTree = "<group>"; };
+		467269D7243D6E4A00637FFF /* RCloudImageViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudImageViewTests.m; sourceTree = "<group>"; };
+		467269D8243D6E4A00637FFF /* RCloudMediaManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudMediaManagerTests.m; sourceTree = "<group>"; };
+		467269DB243D6E4A00637FFF /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpeg; sourceTree = "<group>"; };
+		467269DE243D6E4A00637FFF /* RCDestructImageBrowseControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCDestructImageBrowseControllerTests.m; path = ../../ViewController/RCDestructImageBrowseControllerTests.m; sourceTree = "<group>"; };
+		467269DF243D6E4A00637FFF /* RCGIFPreviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCGIFPreviewViewControllerTests.m; path = ../../ViewController/RCGIFPreviewViewControllerTests.m; sourceTree = "<group>"; };
+		467269E0243D6E4A00637FFF /* wavDec.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wavDec.wav; sourceTree = "<group>"; };
+		467269E2243D6E4A00637FFF /* RCReeditMessageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCReeditMessageManagerTests.m; sourceTree = "<group>"; };
+		467269E3243D6E4A00637FFF /* RCMJRefreshBackFooterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMJRefreshBackFooterTests.m; sourceTree = "<group>"; };
+		467269E4243D6E4A00637FFF /* RCSystemSoundPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSystemSoundPlayerTests.m; sourceTree = "<group>"; };
+		467269E5243D6E4A00637FFF /* RCActiveWheelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCActiveWheelTests.m; sourceTree = "<group>"; };
+		467269E6243D6E4A00637FFF /* UIScrollView+RCMJExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+RCMJExtensionTests.m"; sourceTree = "<group>"; };
+		467269E7243D6E4A00637FFF /* RCKitUtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCKitUtilityTests.m; sourceTree = "<group>"; };
+		467269E8243D6E4A00637FFF /* RCHQVoiceMsgDownloadManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHQVoiceMsgDownloadManagerTests.m; sourceTree = "<group>"; };
+		467269E9243D6E4A00637FFF /* RCMBProgressHUDTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMBProgressHUDTests.m; sourceTree = "<group>"; };
+		467269EA243D6E4A00637FFF /* RCLocalNotificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLocalNotificationTests.m; sourceTree = "<group>"; };
+		467269EB243D6E4A00637FFF /* RCAdminEvaluationViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAdminEvaluationViewTests.m; sourceTree = "<group>"; };
+		467269EC243D6E4A00637FFF /* RCGIFMessageProgressViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGIFMessageProgressViewTests.m; sourceTree = "<group>"; };
+		467269ED243D6E4A00637FFF /* RCSightMessageProgressViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightMessageProgressViewTests.m; sourceTree = "<group>"; };
+		467269EE243D6E4A00637FFF /* RCAttributedLabelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttributedLabelTests.m; sourceTree = "<group>"; };
+		467269EF243D6E4A00637FFF /* RCGIFUtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGIFUtilityTests.m; sourceTree = "<group>"; };
+		467269F0243D6E4A00637FFF /* RCVoicePlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCVoicePlayerTests.m; sourceTree = "<group>"; };
+		467269F2243D6E4A00637FFF /* RCCustomerServiceMessageModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCustomerServiceMessageModelTests.m; sourceTree = "<group>"; };
+		467269F3243D6E4A00637FFF /* RCOldMessageNotificationMessageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOldMessageNotificationMessageTests.m; sourceTree = "<group>"; };
+		467269F4243D6E4A00637FFF /* RCConversationModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationModelTests.m; sourceTree = "<group>"; };
+		467269F6243D6E4A00637FFF /* RCGIFImageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGIFImageTests.m; sourceTree = "<group>"; };
+		467269F7243D6E4A00637FFF /* RCGifImageViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGifImageViewTests.m; sourceTree = "<group>"; };
+		467269F8243D6E4A00637FFF /* RCSightCollectionViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightCollectionViewTests.m; sourceTree = "<group>"; };
+		467269F9243D6E4A00637FFF /* RCMJRefreshBackNormalFooterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMJRefreshBackNormalFooterTests.m; sourceTree = "<group>"; };
+		467269FA243D6E4A00637FFF /* RCRobotEvaluationViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRobotEvaluationViewTests.m; sourceTree = "<group>"; };
+		467269FB243D6E4A00637FFF /* RCMessageBubbleTipViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMessageBubbleTipViewTests.m; sourceTree = "<group>"; };
+		467269FC243D6E4A00637FFF /* RCActionSheetViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCActionSheetViewTests.m; sourceTree = "<group>"; };
+		467269FD243D6E4A00637FFF /* RCCustomIOSAlertViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCustomIOSAlertViewTests.m; sourceTree = "<group>"; };
+		467269FE243D6E4A00637FFF /* rock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rock.gif; sourceTree = "<group>"; };
+		46726A02243D6E4B00637FFF /* RCSightPlayerControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightPlayerControllerTests.m; sourceTree = "<group>"; };
+		46726A03243D6E4B00637FFF /* RCSightFileBrowserViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightFileBrowserViewControllerTests.m; sourceTree = "<group>"; };
+		46726A06243D6E4B00637FFF /* RCPublicServiceProfileViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfileViewControllerTests.m; sourceTree = "<group>"; };
+		46726A07243D6E4B00637FFF /* RCPublicServiceListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceListViewControllerTests.m; sourceTree = "<group>"; };
+		46726A08243D6E4B00637FFF /* RCPublicServiceSearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceSearchViewControllerTests.m; sourceTree = "<group>"; };
+		46726A0A243D6E4B00637FFF /* RCDestructCountDownButtonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDestructCountDownButtonTests.m; sourceTree = "<group>"; };
+		46726A0B243D6E4B00637FFF /* RCDestructGIFPreviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDestructGIFPreviewViewControllerTests.m; sourceTree = "<group>"; };
+		46726A0D243D6E4B00637FFF /* RCSettingViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSettingViewControllerTests.m; sourceTree = "<group>"; };
+		46726A0F243D6E4B00637FFF /* RCCombineMessagePreviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCombineMessagePreviewViewControllerTests.m; sourceTree = "<group>"; };
+		46726A10243D6E4B00637FFF /* RCCombineMessageUtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCombineMessageUtilityTests.m; sourceTree = "<group>"; };
+		46726A11243D6E4B00637FFF /* RCForwardManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCForwardManagerTests.m; sourceTree = "<group>"; };
+		46726A13243D6E4B00637FFF /* RCCSLeaveMessageControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCSLeaveMessageControllerTests.m; sourceTree = "<group>"; };
+		46726A16243D6E4B00637FFF /* RCConversationViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationViewControllerTests.m; sourceTree = "<group>"; };
+		46726A17243D6E4B00637FFF /* RCFilePreviewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFilePreviewViewControllerTests.m; sourceTree = "<group>"; };
+		46726A18243D6E4B00637FFF /* RCSightSlideViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightSlideViewControllerTests.m; sourceTree = "<group>"; };
+		46726A19243D6E4B00637FFF /* RCImageSlideControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImageSlideControllerTests.m; sourceTree = "<group>"; };
+		46726A1A243D6E4B00637FFF /* RCConversationListViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationListViewControllerTests.m; sourceTree = "<group>"; };
+		46726A1B243D6E4B00637FFF /* RCConversationDetailContentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationDetailContentViewTests.m; sourceTree = "<group>"; };
+		46726A1C243D6E4B00637FFF /* RCSightCollectionViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightCollectionViewCellTests.m; sourceTree = "<group>"; };
+		46726A1E243D6E4B00637FFF /* RCConversationInfoCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationInfoCacheTests.m; sourceTree = "<group>"; };
+		46726A1F243D6E4B00637FFF /* RCUserInfoCacheManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserInfoCacheManagerTests.m; sourceTree = "<group>"; };
+		46726A20243D6E4B00637FFF /* RCFMDBTestBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCFMDBTestBase.h; sourceTree = "<group>"; };
+		46726A21243D6E4B00637FFF /* RCloudFMResultSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudFMResultSetTests.m; sourceTree = "<group>"; };
+		46726A22243D6E4B00637FFF /* RCFMDBQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFMDBQueueTests.m; sourceTree = "<group>"; };
+		46726A23243D6E4B00637FFF /* RCFMDBPoolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFMDBPoolTests.m; sourceTree = "<group>"; };
+		46726A24243D6E4B00637FFF /* RCloudFMDatabaseAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudFMDatabaseAdditionsTests.m; sourceTree = "<group>"; };
+		46726A25243D6E4B00637FFF /* RCUserInfoCacheDBHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserInfoCacheDBHelperTests.m; sourceTree = "<group>"; };
+		46726A26243D6E4B00637FFF /* RCFMDBTestBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFMDBTestBase.m; sourceTree = "<group>"; };
+		46726A27243D6E4B00637FFF /* RCThreadSafeMutableDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCThreadSafeMutableDictionaryTests.m; sourceTree = "<group>"; };
+		46726A28243D6E4B00637FFF /* RCloudFMDatabaseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCloudFMDatabaseTests.m; sourceTree = "<group>"; };
+		46726A29243D6E4B00637FFF /* coverage-04.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "coverage-04.dtd"; sourceTree = "<group>"; };
+		46726A2B243D6E4B00637FFF /* RongIMKitExtensionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RongIMKitExtensionManagerTests.m; sourceTree = "<group>"; };
+		46726A2C243D6E4B00637FFF /* RCIMTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCIMTests.m; sourceTree = "<group>"; };
+		46726A2F243D6E4B00637FFF /* RCMethodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMethodModel.h; sourceTree = "<group>"; };
+		46726A30243D6E4B00637FFF /* RCTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTestHelper.m; sourceTree = "<group>"; };
+		46726A31243D6E4B00637FFF /* RCMethodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMethodModel.m; sourceTree = "<group>"; };
+		46726A32243D6E4B00637FFF /* RCTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTestHelper.h; sourceTree = "<group>"; };
+		46726A36243D6E4B00637FFF /* RCPublicServiceProfileOwnerCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfileOwnerCellTests.m; sourceTree = "<group>"; };
+		46726A37243D6E4B00637FFF /* RCPublicServiceProfileTelCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfileTelCellTests.m; sourceTree = "<group>"; };
+		46726A38243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellContentCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceMultiImgTxtCellContentCellTests.m; sourceTree = "<group>"; };
+		46726A39243D6E4B00637FFF /* RCPublicServiceProfilePlainCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfilePlainCellTests.m; sourceTree = "<group>"; };
+		46726A3A243D6E4B00637FFF /* RCCSLeaveMessagesCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCSLeaveMessagesCellTests.m; sourceTree = "<group>"; };
+		46726A3B243D6E4B00637FFF /* RCLocationMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCLocationMessageCellTests.m; sourceTree = "<group>"; };
+		46726A3C243D6E4B00637FFF /* RCTipMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTipMessageCellTests.m; sourceTree = "<group>"; };
+		46726A3D243D6E4B00637FFF /* RCHQVoiceMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHQVoiceMessageCellTests.m; sourceTree = "<group>"; };
+		46726A3E243D6E4B00637FFF /* RCConversationSettingTableViewHeaderItemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationSettingTableViewHeaderItemTests.m; sourceTree = "<group>"; };
+		46726A3F243D6E4B00637FFF /* RCCombineMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCombineMessageCellTests.m; sourceTree = "<group>"; };
+		46726A40243D6E4B00637FFF /* RCSightMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSightMessageCellTests.m; sourceTree = "<group>"; };
+		46726A41243D6E4B00637FFF /* RCPublicServiceProfileRcvdMsgCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfileRcvdMsgCellTests.m; sourceTree = "<group>"; };
+		46726A42243D6E4B00637FFF /* RCConversationSettingTableViewHeaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationSettingTableViewHeaderTests.m; sourceTree = "<group>"; };
+		46726A43243D6E4B00637FFF /* RCPublicServiceProfileUrlCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceProfileUrlCellTests.m; sourceTree = "<group>"; };
+		46726A44243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceMultiImgTxtCellTests.m; sourceTree = "<group>"; };
+		46726A45243D6E4B00637FFF /* RCPublicServiceSearchHintCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicServiceSearchHintCellTests.m; sourceTree = "<group>"; };
+		46726A46243D6E4B00637FFF /* RCVoiceMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCVoiceMessageCellTests.m; sourceTree = "<group>"; };
+		46726A47243D6E4B00637FFF /* RCConversationCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConversationCellTests.m; sourceTree = "<group>"; };
+		46726A48243D6E4B00637FFF /* RCTextMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTextMessageCellTests.m; sourceTree = "<group>"; };
+		46726A49243D6E4B00637FFF /* RCGIFMessageCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGIFMessageCellTests.m; sourceTree = "<group>"; };
+		46788863243D705300D302D5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		46788868243D709B00D302D5 /* RCConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = RCConfig.plist; path = framework/RCConfig.plist; sourceTree = "<group>"; };
 		46B8E0131B8AC3930094DBCA /* RCOldMessageNotificationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCOldMessageNotificationMessage.h; sourceTree = "<group>"; };
 		46B8E0141B8AC3930094DBCA /* RCOldMessageNotificationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOldMessageNotificationMessage.m; sourceTree = "<group>"; };
@@ -1020,6 +1209,238 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		467269C8243D6E2800637FFF /* RongIMKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				46726A1D243D6E4B00637FFF /* Cache */,
+				46726A35243D6E4B00637FFF /* Cell */,
+				46726A00243D6E4B00637FFF /* Controller */,
+				46726A29243D6E4B00637FFF /* coverage-04.dtd */,
+				467269E1243D6E4A00637FFF /* CustomObjects */,
+				46726A2A243D6E4B00637FFF /* ExtensionManager */,
+				467269D3243D6E4A00637FFF /* ImageLoading */,
+				467269F1243D6E4A00637FFF /* Model */,
+				467269D2243D6E4A00637FFF /* RCCommonTests.m */,
+				46726A2C243D6E4B00637FFF /* RCIMTests.m */,
+				467269FE243D6E4A00637FFF /* rock.gif */,
+				467269DB243D6E4A00637FFF /* test.jpeg */,
+				46726A2E243D6E4B00637FFF /* Utility */,
+				467269F5243D6E4A00637FFF /* View */,
+				467269E0243D6E4A00637FFF /* wavDec.wav */,
+				467269C9243D6E2800637FFF /* RongIMKitTests.m */,
+				467269CB243D6E2800637FFF /* Info.plist */,
+				46788863243D705300D302D5 /* PrefixHeader.pch */,
+			);
+			path = RongIMKitTests;
+			sourceTree = "<group>";
+		};
+		467269D3243D6E4A00637FFF /* ImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				467269D4243D6E4A00637FFF /* RCloudImageLoaderTests.m */,
+				467269D5243D6E4A00637FFF /* RCloudCacheTests.m */,
+				467269D6243D6E4A00637FFF /* RCloudImageLoadConnectionTests.m */,
+				467269D7243D6E4A00637FFF /* RCloudImageViewTests.m */,
+				467269D8243D6E4A00637FFF /* RCloudMediaManagerTests.m */,
+			);
+			path = ImageLoading;
+			sourceTree = "<group>";
+		};
+		467269E1243D6E4A00637FFF /* CustomObjects */ = {
+			isa = PBXGroup;
+			children = (
+				467269E2243D6E4A00637FFF /* RCReeditMessageManagerTests.m */,
+				467269E3243D6E4A00637FFF /* RCMJRefreshBackFooterTests.m */,
+				467269E4243D6E4A00637FFF /* RCSystemSoundPlayerTests.m */,
+				467269E5243D6E4A00637FFF /* RCActiveWheelTests.m */,
+				467269E6243D6E4A00637FFF /* UIScrollView+RCMJExtensionTests.m */,
+				467269E7243D6E4A00637FFF /* RCKitUtilityTests.m */,
+				467269E8243D6E4A00637FFF /* RCHQVoiceMsgDownloadManagerTests.m */,
+				467269E9243D6E4A00637FFF /* RCMBProgressHUDTests.m */,
+				467269EA243D6E4A00637FFF /* RCLocalNotificationTests.m */,
+				467269EB243D6E4A00637FFF /* RCAdminEvaluationViewTests.m */,
+				467269EC243D6E4A00637FFF /* RCGIFMessageProgressViewTests.m */,
+				467269ED243D6E4A00637FFF /* RCSightMessageProgressViewTests.m */,
+				467269EE243D6E4A00637FFF /* RCAttributedLabelTests.m */,
+				467269EF243D6E4A00637FFF /* RCGIFUtilityTests.m */,
+				467269F0243D6E4A00637FFF /* RCVoicePlayerTests.m */,
+			);
+			path = CustomObjects;
+			sourceTree = "<group>";
+		};
+		467269F1243D6E4A00637FFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				467269F2243D6E4A00637FFF /* RCCustomerServiceMessageModelTests.m */,
+				467269F3243D6E4A00637FFF /* RCOldMessageNotificationMessageTests.m */,
+				467269F4243D6E4A00637FFF /* RCConversationModelTests.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		467269F5243D6E4A00637FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				467269F6243D6E4A00637FFF /* RCGIFImageTests.m */,
+				467269F7243D6E4A00637FFF /* RCGifImageViewTests.m */,
+				467269F8243D6E4A00637FFF /* RCSightCollectionViewTests.m */,
+				467269F9243D6E4A00637FFF /* RCMJRefreshBackNormalFooterTests.m */,
+				467269FA243D6E4A00637FFF /* RCRobotEvaluationViewTests.m */,
+				467269FB243D6E4A00637FFF /* RCMessageBubbleTipViewTests.m */,
+				467269FC243D6E4A00637FFF /* RCActionSheetViewTests.m */,
+				467269FD243D6E4A00637FFF /* RCCustomIOSAlertViewTests.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		46726A00243D6E4B00637FFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46726A01243D6E4B00637FFF /* Sight */,
+				46726A04243D6E4B00637FFF /* PublicService */,
+				46726A09243D6E4B00637FFF /* BurnAfterRead */,
+				46726A0C243D6E4B00637FFF /* Setting */,
+				46726A0E243D6E4B00637FFF /* forward */,
+				46726A12243D6E4B00637FFF /* Customer */,
+				46726A14243D6E4B00637FFF /* Conversation */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		46726A01243D6E4B00637FFF /* Sight */ = {
+			isa = PBXGroup;
+			children = (
+				46726A02243D6E4B00637FFF /* RCSightPlayerControllerTests.m */,
+				46726A03243D6E4B00637FFF /* RCSightFileBrowserViewControllerTests.m */,
+			);
+			path = Sight;
+			sourceTree = "<group>";
+		};
+		46726A04243D6E4B00637FFF /* PublicService */ = {
+			isa = PBXGroup;
+			children = (
+				46726A06243D6E4B00637FFF /* RCPublicServiceProfileViewControllerTests.m */,
+				46726A07243D6E4B00637FFF /* RCPublicServiceListViewControllerTests.m */,
+				46726A08243D6E4B00637FFF /* RCPublicServiceSearchViewControllerTests.m */,
+			);
+			path = PublicService;
+			sourceTree = "<group>";
+		};
+		46726A09243D6E4B00637FFF /* BurnAfterRead */ = {
+			isa = PBXGroup;
+			children = (
+				467269DE243D6E4A00637FFF /* RCDestructImageBrowseControllerTests.m */,
+				46726A0A243D6E4B00637FFF /* RCDestructCountDownButtonTests.m */,
+				46726A0B243D6E4B00637FFF /* RCDestructGIFPreviewViewControllerTests.m */,
+			);
+			path = BurnAfterRead;
+			sourceTree = "<group>";
+		};
+		46726A0C243D6E4B00637FFF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				46726A0D243D6E4B00637FFF /* RCSettingViewControllerTests.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		46726A0E243D6E4B00637FFF /* forward */ = {
+			isa = PBXGroup;
+			children = (
+				46726A0F243D6E4B00637FFF /* RCCombineMessagePreviewViewControllerTests.m */,
+				46726A10243D6E4B00637FFF /* RCCombineMessageUtilityTests.m */,
+				46726A11243D6E4B00637FFF /* RCForwardManagerTests.m */,
+			);
+			path = forward;
+			sourceTree = "<group>";
+		};
+		46726A12243D6E4B00637FFF /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				46726A13243D6E4B00637FFF /* RCCSLeaveMessageControllerTests.m */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		46726A14243D6E4B00637FFF /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				467269DF243D6E4A00637FFF /* RCGIFPreviewViewControllerTests.m */,
+				46726A16243D6E4B00637FFF /* RCConversationViewControllerTests.m */,
+				46726A17243D6E4B00637FFF /* RCFilePreviewViewControllerTests.m */,
+				46726A18243D6E4B00637FFF /* RCSightSlideViewControllerTests.m */,
+				46726A19243D6E4B00637FFF /* RCImageSlideControllerTests.m */,
+				46726A1A243D6E4B00637FFF /* RCConversationListViewControllerTests.m */,
+				46726A1B243D6E4B00637FFF /* RCConversationDetailContentViewTests.m */,
+				46726A1C243D6E4B00637FFF /* RCSightCollectionViewCellTests.m */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		46726A1D243D6E4B00637FFF /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				46726A1E243D6E4B00637FFF /* RCConversationInfoCacheTests.m */,
+				46726A1F243D6E4B00637FFF /* RCUserInfoCacheManagerTests.m */,
+				46726A20243D6E4B00637FFF /* RCFMDBTestBase.h */,
+				46726A21243D6E4B00637FFF /* RCloudFMResultSetTests.m */,
+				46726A22243D6E4B00637FFF /* RCFMDBQueueTests.m */,
+				46726A23243D6E4B00637FFF /* RCFMDBPoolTests.m */,
+				46726A24243D6E4B00637FFF /* RCloudFMDatabaseAdditionsTests.m */,
+				46726A25243D6E4B00637FFF /* RCUserInfoCacheDBHelperTests.m */,
+				46726A26243D6E4B00637FFF /* RCFMDBTestBase.m */,
+				46726A27243D6E4B00637FFF /* RCThreadSafeMutableDictionaryTests.m */,
+				46726A28243D6E4B00637FFF /* RCloudFMDatabaseTests.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		46726A2A243D6E4B00637FFF /* ExtensionManager */ = {
+			isa = PBXGroup;
+			children = (
+				46726A2B243D6E4B00637FFF /* RongIMKitExtensionManagerTests.m */,
+			);
+			path = ExtensionManager;
+			sourceTree = "<group>";
+		};
+		46726A2E243D6E4B00637FFF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				46726A2F243D6E4B00637FFF /* RCMethodModel.h */,
+				46726A30243D6E4B00637FFF /* RCTestHelper.m */,
+				46726A31243D6E4B00637FFF /* RCMethodModel.m */,
+				46726A32243D6E4B00637FFF /* RCTestHelper.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		46726A35243D6E4B00637FFF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				46726A36243D6E4B00637FFF /* RCPublicServiceProfileOwnerCellTests.m */,
+				46726A37243D6E4B00637FFF /* RCPublicServiceProfileTelCellTests.m */,
+				46726A38243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellContentCellTests.m */,
+				46726A39243D6E4B00637FFF /* RCPublicServiceProfilePlainCellTests.m */,
+				46726A3A243D6E4B00637FFF /* RCCSLeaveMessagesCellTests.m */,
+				46726A3B243D6E4B00637FFF /* RCLocationMessageCellTests.m */,
+				46726A3C243D6E4B00637FFF /* RCTipMessageCellTests.m */,
+				46726A3D243D6E4B00637FFF /* RCHQVoiceMessageCellTests.m */,
+				46726A3E243D6E4B00637FFF /* RCConversationSettingTableViewHeaderItemTests.m */,
+				46726A3F243D6E4B00637FFF /* RCCombineMessageCellTests.m */,
+				46726A40243D6E4B00637FFF /* RCSightMessageCellTests.m */,
+				46726A41243D6E4B00637FFF /* RCPublicServiceProfileRcvdMsgCellTests.m */,
+				46726A42243D6E4B00637FFF /* RCConversationSettingTableViewHeaderTests.m */,
+				46726A43243D6E4B00637FFF /* RCPublicServiceProfileUrlCellTests.m */,
+				46726A44243D6E4B00637FFF /* RCPublicServiceMultiImgTxtCellTests.m */,
+				46726A45243D6E4B00637FFF /* RCPublicServiceSearchHintCellTests.m */,
+				46726A46243D6E4B00637FFF /* RCVoiceMessageCellTests.m */,
+				46726A47243D6E4B00637FFF /* RCConversationCellTests.m */,
+				46726A48243D6E4B00637FFF /* RCTextMessageCellTests.m */,
+				46726A49243D6E4B00637FFF /* RCGIFMessageCellTests.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		51317D0F1A70928700955432 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,6 +1516,7 @@
 			children = (
 				A226DFAE2489F8EC00F577CB /* Scripts */,
 				5146EC5E1A650C82005C8B39 /* RongIMKit */,
+				467269C8243D6E2800637FFF /* RongIMKitTests */,
 				8CB682A21ABC21BE007A66FE /* Frameworks */,
 				5146EC5D1A650C82005C8B39 /* Products */,
 			);
@@ -2269,6 +2691,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4678888A243DAAF900D302D5 /* RongCloud.bundle in Resources */,
+				46726A54243D6E4B00637FFF /* wavDec.wav in Resources */,
+				46726A6F243D6E4B00637FFF /* rock.gif in Resources */,
+				46726A8F243D6E4C00637FFF /* coverage-04.dtd in Resources */,
+				46726A51243D6E4B00637FFF /* test.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2319,6 +2745,94 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46726AA4243D6E4C00637FFF /* RCPublicServiceSearchHintCellTests.m in Sources */,
+				46726A9B243D6E4C00637FFF /* RCTipMessageCellTests.m in Sources */,
+				46726A84243D6E4C00637FFF /* RCSightCollectionViewCellTests.m in Sources */,
+				46726A9C243D6E4C00637FFF /* RCHQVoiceMessageCellTests.m in Sources */,
+				467269CA243D6E2800637FFF /* RongIMKitTests.m in Sources */,
+				46726A59243D6E4B00637FFF /* UIScrollView+RCMJExtensionTests.m in Sources */,
+				46726A86243D6E4C00637FFF /* RCUserInfoCacheManagerTests.m in Sources */,
+				46726A9F243D6E4C00637FFF /* RCSightMessageCellTests.m in Sources */,
+				46726A5A243D6E4B00637FFF /* RCKitUtilityTests.m in Sources */,
+				46726A80243D6E4C00637FFF /* RCSightSlideViewControllerTests.m in Sources */,
+				46726AA7243D6E4C00637FFF /* RCTextMessageCellTests.m in Sources */,
+				46726A8B243D6E4C00637FFF /* RCUserInfoCacheDBHelperTests.m in Sources */,
+				46726A76243D6E4C00637FFF /* RCDestructCountDownButtonTests.m in Sources */,
+				46726AA8243D6E4C00637FFF /* RCGIFMessageCellTests.m in Sources */,
+				46726A8A243D6E4C00637FFF /* RCloudFMDatabaseAdditionsTests.m in Sources */,
+				46726A9A243D6E4C00637FFF /* RCLocationMessageCellTests.m in Sources */,
+				46726A69243D6E4B00637FFF /* RCSightCollectionViewTests.m in Sources */,
+				46726A74243D6E4C00637FFF /* RCPublicServiceListViewControllerTests.m in Sources */,
+				46726A78243D6E4C00637FFF /* RCSettingViewControllerTests.m in Sources */,
+				46726A6A243D6E4B00637FFF /* RCMJRefreshBackNormalFooterTests.m in Sources */,
+				46726A89243D6E4C00637FFF /* RCFMDBPoolTests.m in Sources */,
+				46726A65243D6E4B00637FFF /* RCOldMessageNotificationMessageTests.m in Sources */,
+				46726A81243D6E4C00637FFF /* RCImageSlideControllerTests.m in Sources */,
+				46726A4C243D6E4B00637FFF /* RCloudCacheTests.m in Sources */,
+				46726A67243D6E4B00637FFF /* RCGIFImageTests.m in Sources */,
+				46726A83243D6E4C00637FFF /* RCConversationDetailContentViewTests.m in Sources */,
+				46726A90243D6E4C00637FFF /* RongIMKitExtensionManagerTests.m in Sources */,
+				46726A66243D6E4B00637FFF /* RCConversationModelTests.m in Sources */,
+				46726AA3243D6E4C00637FFF /* RCPublicServiceMultiImgTxtCellTests.m in Sources */,
+				46726A7E243D6E4C00637FFF /* RCConversationViewControllerTests.m in Sources */,
+				46726A61243D6E4B00637FFF /* RCAttributedLabelTests.m in Sources */,
+				46726A92243D6E4C00637FFF /* RCTestHelper.m in Sources */,
+				46726A93243D6E4C00637FFF /* RCMethodModel.m in Sources */,
+				46726AA2243D6E4C00637FFF /* RCPublicServiceProfileUrlCellTests.m in Sources */,
+				46726A91243D6E4C00637FFF /* RCIMTests.m in Sources */,
+				46726AA5243D6E4C00637FFF /* RCVoiceMessageCellTests.m in Sources */,
+				46726A60243D6E4B00637FFF /* RCSightMessageProgressViewTests.m in Sources */,
+				46726A64243D6E4B00637FFF /* RCCustomerServiceMessageModelTests.m in Sources */,
+				46726A6B243D6E4B00637FFF /* RCRobotEvaluationViewTests.m in Sources */,
+				46726A5B243D6E4B00637FFF /* RCHQVoiceMsgDownloadManagerTests.m in Sources */,
+				46726A6E243D6E4B00637FFF /* RCCustomIOSAlertViewTests.m in Sources */,
+				46726A6D243D6E4B00637FFF /* RCActionSheetViewTests.m in Sources */,
+				46726A7F243D6E4C00637FFF /* RCFilePreviewViewControllerTests.m in Sources */,
+				46726A79243D6E4C00637FFF /* RCCombineMessagePreviewViewControllerTests.m in Sources */,
+				46726A4D243D6E4B00637FFF /* RCloudImageLoadConnectionTests.m in Sources */,
+				46726A5E243D6E4B00637FFF /* RCAdminEvaluationViewTests.m in Sources */,
+				46726A7C243D6E4C00637FFF /* RCCSLeaveMessageControllerTests.m in Sources */,
+				46726A58243D6E4B00637FFF /* RCActiveWheelTests.m in Sources */,
+				46726A8C243D6E4C00637FFF /* RCFMDBTestBase.m in Sources */,
+				46726A5C243D6E4B00637FFF /* RCMBProgressHUDTests.m in Sources */,
+				46726A82243D6E4C00637FFF /* RCConversationListViewControllerTests.m in Sources */,
+				46726A99243D6E4C00637FFF /* RCCSLeaveMessagesCellTests.m in Sources */,
+				46726A55243D6E4B00637FFF /* RCReeditMessageManagerTests.m in Sources */,
+				46726A73243D6E4C00637FFF /* RCPublicServiceProfileViewControllerTests.m in Sources */,
+				46726A9E243D6E4C00637FFF /* RCCombineMessageCellTests.m in Sources */,
+				46726A56243D6E4B00637FFF /* RCMJRefreshBackFooterTests.m in Sources */,
+				46726A77243D6E4C00637FFF /* RCDestructGIFPreviewViewControllerTests.m in Sources */,
+				46726A95243D6E4C00637FFF /* RCPublicServiceProfileOwnerCellTests.m in Sources */,
+				46726AA6243D6E4C00637FFF /* RCConversationCellTests.m in Sources */,
+				46726A68243D6E4B00637FFF /* RCGifImageViewTests.m in Sources */,
+				46726A8E243D6E4C00637FFF /* RCloudFMDatabaseTests.m in Sources */,
+				46726A5F243D6E4B00637FFF /* RCGIFMessageProgressViewTests.m in Sources */,
+				46726A57243D6E4B00637FFF /* RCSystemSoundPlayerTests.m in Sources */,
+				46726A63243D6E4B00637FFF /* RCVoicePlayerTests.m in Sources */,
+				46726A70243D6E4C00637FFF /* RCSightPlayerControllerTests.m in Sources */,
+				46726A7A243D6E4C00637FFF /* RCCombineMessageUtilityTests.m in Sources */,
+				46726A62243D6E4B00637FFF /* RCGIFUtilityTests.m in Sources */,
+				46726A8D243D6E4C00637FFF /* RCThreadSafeMutableDictionaryTests.m in Sources */,
+				46726A4A243D6E4B00637FFF /* RCCommonTests.m in Sources */,
+				46726AA1243D6E4C00637FFF /* RCConversationSettingTableViewHeaderTests.m in Sources */,
+				46726A4B243D6E4B00637FFF /* RCloudImageLoaderTests.m in Sources */,
+				46726AA0243D6E4C00637FFF /* RCPublicServiceProfileRcvdMsgCellTests.m in Sources */,
+				46726A52243D6E4B00637FFF /* RCDestructImageBrowseControllerTests.m in Sources */,
+				46726A85243D6E4C00637FFF /* RCConversationInfoCacheTests.m in Sources */,
+				46726A9D243D6E4C00637FFF /* RCConversationSettingTableViewHeaderItemTests.m in Sources */,
+				46726A98243D6E4C00637FFF /* RCPublicServiceProfilePlainCellTests.m in Sources */,
+				46726A75243D6E4C00637FFF /* RCPublicServiceSearchViewControllerTests.m in Sources */,
+				46726A96243D6E4C00637FFF /* RCPublicServiceProfileTelCellTests.m in Sources */,
+				46726A97243D6E4C00637FFF /* RCPublicServiceMultiImgTxtCellContentCellTests.m in Sources */,
+				46726A4E243D6E4B00637FFF /* RCloudImageViewTests.m in Sources */,
+				46726A5D243D6E4B00637FFF /* RCLocalNotificationTests.m in Sources */,
+				46726A7B243D6E4C00637FFF /* RCForwardManagerTests.m in Sources */,
+				46726A4F243D6E4B00637FFF /* RCloudMediaManagerTests.m in Sources */,
+				46726A88243D6E4C00637FFF /* RCFMDBQueueTests.m in Sources */,
+				46726A53243D6E4B00637FFF /* RCGIFPreviewViewControllerTests.m in Sources */,
+				46726A71243D6E4C00637FFF /* RCSightFileBrowserViewControllerTests.m in Sources */,
+				46726A87243D6E4C00637FFF /* RCloudFMResultSetTests.m in Sources */,
+				46726A6C243D6E4B00637FFF /* RCMessageBubbleTipViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

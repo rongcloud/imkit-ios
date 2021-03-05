@@ -203,7 +203,7 @@
 
 - (void)getMessageFromModel:(RCMessageModel *)model {
     if (!model) {
-        NSLog(@"传入的参数不允许是 nil");
+        NSLog(@"Parameters are not allowed to be nil");
         return;
     }
     self.imageArray = [[NSMutableArray alloc] initWithObjects:model, nil];

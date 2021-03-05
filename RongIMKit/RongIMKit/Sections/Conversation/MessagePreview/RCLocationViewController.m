@@ -61,7 +61,7 @@
         [self.mapView setRegion:coordinateRegion animated:NO];
         [self.mapView selectAnnotation:self.annotation animated:YES];
     } else {
-        NSLog(@"经纬度无效！！！");
+        NSLog(@"Invalid latitude and longitude！！！");
     }
 }
 

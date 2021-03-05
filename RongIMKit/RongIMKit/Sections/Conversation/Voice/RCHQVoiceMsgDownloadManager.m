@@ -8,7 +8,7 @@
 
 #import "RCHQVoiceMsgDownloadManager.h"
 #import "RCHQVoiceMsgDownloadInfo.h"
-#import <RongIMKit/RongIMKit.h>
+#import "RongIMKit.h"
 
 @interface RCHQVoiceMsgDownloadManager ()
 

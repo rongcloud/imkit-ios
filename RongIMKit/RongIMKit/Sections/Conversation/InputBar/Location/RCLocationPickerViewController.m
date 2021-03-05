@@ -258,7 +258,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    DebugLog(@"获取用户位置出错： %@", [error description]);
+    DebugLog(@"Error getting user location： %@", [error description]);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

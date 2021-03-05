@@ -10,6 +10,7 @@
 #import "RCIM.h"
 #import <AVFoundation/AVFoundation.h>
 #import "RCKitConfig.h"
+#import "RCKitCommonDefine.h"
 
 NSString *const kNotificationStopVoicePlayer = @"kNotificationStopVoicePlayer";
 

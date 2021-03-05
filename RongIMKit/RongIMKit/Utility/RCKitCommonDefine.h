@@ -60,4 +60,10 @@
 #pragma mark - device
 #define ISX [RCKitUtility getWindowSafeAreaInsets].top >= 10
 
+#ifdef DEBUG
+#define DebugLog( s, ... ) NSLog( @"[%@:(%d)] %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define DebugLog( s, ... )
+#endif
+
 #endif /* RCKitCommonDefine_h */

@@ -2134,6 +2134,13 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  */
 - (NSInteger)getGIFLimitSize;
 
+/**
+ 小视频消息时长限制，以 秒 为单位，超过这个时长的小视频消息不能在相册中被选择发送
+
+ @return 小视频消息时长，以 秒 为单位
+ */
+- (NSTimeInterval)getVideoDurationLimit;
+
 #pragma mark - 会话状态同步，免打扰，置顶
 
 /*!

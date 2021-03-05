@@ -45,7 +45,6 @@ static BOOL msgRoamingServiceAvailable = YES;
 //会话页面的CollectionView Layout
 @property (nonatomic, strong) RCConversationViewLayout *customFlowLayout;
 @property (nonatomic, strong) RCMessage *firstUnreadMessage; //第一条未读消息,进入会话时存储起来，因为加载消息之后会改变所有消息的未读状态
-@property (nonatomic, strong) NSArray *unreadMentionedMessages;
 @end
 
 @implementation RCConversationDataSource
@@ -62,6 +61,7 @@ static BOOL msgRoamingServiceAvailable = YES;
         self.appendMessageQueue = [NSOperationQueue new];
         self.appendMessageQueue.maxConcurrentOperationCount = 1;
         self.appendMessageQueue.name = @"cn.rongcloud.appendMessageQueue";
+        self.unreadMentionedMessages = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -84,7 +84,7 @@ static BOOL msgRoamingServiceAvailable = YES;
                 self.chatVC.chatSessionInputBarControl.isMentionedEnabled = YES;
                 if (conversation.hasUnreadMentioned) {
                     self.unreadMentionedMessages =
-                        [[RCIMClient sharedRCIMClient] getUnreadMentionedMessages:self.chatVC.conversationType targetId:self.chatVC.targetId];
+                        [[[RCIMClient sharedRCIMClient] getUnreadMentionedMessages:self.chatVC.conversationType targetId:self.chatVC.targetId] mutableCopy];
                 }
             }
         }else if (self.chatVC.conversationType == ConversationType_CUSTOMERSERVICE) {
@@ -195,8 +195,9 @@ static BOOL msgRoamingServiceAvailable = YES;
 
 - (void)loadLatestHistoryMessage {
     self.loadHistoryMessageFromRemote = NO;
-    int beforeCount = 10;
-    int afterCount = 10;
+    int beforeCount = self.chatVC.defaultLocalHistoryMessageCount;
+    int afterCount = self.chatVC.defaultLocalHistoryMessageCount;
+
     if ([RCKitUtility currentDeviceIsIPad]) {
         beforeCount = 15;
         afterCount = 15;
@@ -209,9 +210,9 @@ static BOOL msgRoamingServiceAvailable = YES;
     [self.chatVC.util sendReadReceiptResponseForMessages:__messageArray];
 
     // 1.如果 self.locatedMessageSentTime == 0,
-    // __messageArray.count<10,证明本地消息已经拉完，如果再次拉取，需要从远端拉消息
+    // ==0,__messageArray.count<self.defaultLocalHistoryMessageCount,证明本地消息已经拉完，如果再次拉取，需要从远端拉消息
     if (self.chatVC.conversationType != ConversationType_CHATROOM) {
-        if (!self.chatVC.locatedMessageSentTime && __messageArray.count < 10) {
+        if (!self.chatVC.locatedMessageSentTime && __messageArray.count < self.chatVC.defaultLocalHistoryMessageCount) {
             self.loadHistoryMessageFromRemote = YES;
             self.isLoadingHistoryMessage = NO;
             self.recordTime = ((RCMessage *)__messageArray.lastObject).sentTime;
@@ -230,15 +231,14 @@ static BOOL msgRoamingServiceAvailable = YES;
         [self pushOldMessageModel:model];
         [self showUnreadViewInMessageCell:model];
         // 2.如果 self.locatedMessageSentTime
-        // 不为0,判断定位的那条消息之前的消息如果小于拉取的数量10，则再次拉取需要从远端拉消息，
-        // 如果定位的那条消息之后的消息大于拉取的数量10，证明此时已经没有最新消息，isLoadingHistoryMessage 置为 NO
+        //不为0,判断定位的那条消息之前的消息如果小于拉取的数量self.defaultLocalHistoryMessageCount，则再次拉取需要从远端拉消息，如果定位的那条消息之后的消息大于拉取的数量self.defaultLocalHistoryMessageCount，证明此时已经没有最新消息，isLoadingHistoryMessage
         if (self.chatVC.locatedMessageSentTime && model.sentTime == self.chatVC.locatedMessageSentTime) {
-            if (i < 10) {
+            if (i < self.chatVC.defaultLocalHistoryMessageCount) {
                 self.isLoadingHistoryMessage = NO;
             } else {
                 self.isLoadingHistoryMessage = YES;
             }
-            if (__messageArray.count - 1 - i < 10) {
+            if (__messageArray.count - 1 - i < self.chatVC.defaultLocalHistoryMessageCount) {
                 self.loadHistoryMessageFromRemote = YES;
             }
         }
@@ -296,14 +296,14 @@ static BOOL msgRoamingServiceAvailable = YES;
     NSArray *__messageArray = [[RCIMClient sharedRCIMClient] getHistoryMessages:self.chatVC.conversationType
                                                                        targetId:self.chatVC.targetId
                                                                 oldestMessageId:lastMessageId
-                                                                          count:10];
+                                                                          count:self.chatVC.defaultLocalHistoryMessageCount];
     [self.chatVC.util sendReadReceiptResponseForMessages:__messageArray];
     if (__messageArray.count > 0) {
         [self handleMessagesAfterLoadMore:__messageArray];
         RCMessage *message = __messageArray.lastObject;
         self.recordTime = message.sentTime;
     }
-    if (__messageArray.count < 10) {
+    if (__messageArray.count < self.chatVC.defaultLocalHistoryMessageCount) {
         self.allMessagesAreLoaded = NO;
         self.loadHistoryMessageFromRemote = YES;
 //        [self loadRemoteHistoryMessages];
@@ -334,7 +334,7 @@ static BOOL msgRoamingServiceAvailable = YES;
     
     RCRemoteHistoryMsgOption *option = [RCRemoteHistoryMsgOption new];
     option.recordTime = self.recordTime;
-    option.count = 10;
+    option.count = self.chatVC.defaultRemoteHistoryMessageCount;
     option.order = RCRemoteHistoryOrderDesc;
     [[RCIMClient sharedRCIMClient] getRemoteHistoryMessages:conversationType
         targetId:targetId
@@ -373,8 +373,8 @@ static BOOL msgRoamingServiceAvailable = YES;
                                                                    objectName:nil
                                                                 baseMessageId:model.messageId
                                                                     isForward:NO
-                                                                        count:10];
-    if (!messageArray || messageArray.count < 10) {
+                                                                        count:self.chatVC.defaultLocalHistoryMessageCount];
+    if (!messageArray || messageArray.count < self.chatVC.defaultLocalHistoryMessageCount) {
         self.isLoadingHistoryMessage = NO;
     }
     [self.chatVC.util sendReadReceiptResponseForMessages:messageArray];
@@ -390,8 +390,8 @@ static BOOL msgRoamingServiceAvailable = YES;
 /// 返回添加入conversationDataRepository中消息数量
 - (NSInteger)appendLastestMessageToDataSource {
     NSArray *messageArray =
-        [[RCIMClient sharedRCIMClient] getLatestMessages:self.chatVC.conversationType targetId:self.chatVC.targetId count:10];
-    if (!messageArray || messageArray.count < 10) {
+        [[RCIMClient sharedRCIMClient] getLatestMessages:self.chatVC.conversationType targetId:self.chatVC.targetId count:self.chatVC.defaultLocalHistoryMessageCount];
+    if (!messageArray || messageArray.count < self.chatVC.defaultLocalHistoryMessageCount) {
         self.isLoadingHistoryMessage = NO;
     }
     [self.chatVC.util sendReadReceiptResponseForMessages:messageArray];
@@ -411,7 +411,8 @@ static BOOL msgRoamingServiceAvailable = YES;
 
 - (void)handleMessagesAfterLoadMore:(NSArray *)__messageArray {
     CGFloat increasedHeight = 0;
-    NSMutableArray *indexPathes = [[NSMutableArray alloc] initWithCapacity:10];
+    NSMutableArray *indexPathes = [[NSMutableArray alloc] initWithCapacity:self.chatVC.defaultLocalHistoryMessageCount];
+
     int indexPathCount = 0;
     for (int i = 0; i < __messageArray.count; i++) {
         RCMessage *rcMsg = [__messageArray objectAtIndex:i];
@@ -573,10 +574,18 @@ static BOOL msgRoamingServiceAvailable = YES;
                 if (__blockSelf.chatVC.enableNewComingMessageIcon == YES && (persistentFlag & MessagePersistent_ISPERSISTED)) {
                     if (![__blockSelf isAtTheBottomOfTableView] &&
                         ![rcMessage.senderUserId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]) {
-                        [__blockSelf.unreadNewMsgArr addObject:[NSNumber numberWithLong:rcMessage.messageId]];
+                        [__blockSelf.unreadNewMsgArr addObject:rcMessage];
                         [__blockSelf.chatVC updateUnreadMsgCountLabel];
                     }
                 }
+                if(![__blockSelf isAtTheBottomOfTableView] && ![rcMessage.senderUserId isEqualToString:[RCIM sharedRCIM].currentUserInfo.userId]){
+                    RCMentionedInfo *mentionedInfo = rcMessage.content.mentionedInfo;
+                    if (mentionedInfo.isMentionedMe) {
+                        [self.unreadMentionedMessages addObject:rcMessage];
+                        [self setupUnReadMentionedButton];
+                    }
+                }
+
             }
         });
     } else {
@@ -641,23 +650,39 @@ static BOOL msgRoamingServiceAvailable = YES;
     });
 }
 
-- (void)didRecallMessage:(long)recalledMsgId {
-    RCMessage *recalledMsg = [[RCIMClient sharedRCIMClient] getMessage:recalledMsgId];
-
+- (void)didRecallMessage:(RCMessage *)recalledMsg{
     // 更新右下角未读数(条件：同一个会话／开启提示／未在底部／不是搜索进入的界面／未读数不为0)
     if (self.chatVC.enableNewComingMessageIcon && recalledMsg.conversationType == self.chatVC.conversationType &&
         [recalledMsg.targetId isEqual:self.chatVC.targetId] && ![self isAtTheBottomOfTableView] &&
         self.chatVC.locatedMessageSentTime == 0 && self.unreadNewMsgArr.count != 0) {
-        //遍历删除对应的消息
-        for (NSNumber *messageId in self.unreadNewMsgArr) {
-            if ([messageId longValue] == recalledMsgId) {
-                [self.unreadNewMsgArr removeObject:messageId];
+        for (RCMessage *messagge in self.unreadNewMsgArr) {
+            if (messagge.messageId == recalledMsg.messageId) {
+                [self.unreadNewMsgArr removeObject:messagge];
                 break;
             }
         }
+        
+        if (self.firstUnreadMessage) {
+            self.firstUnreadMessage = recalledMsg;
+
+        }
         [self.chatVC updateUnreadMsgCountLabel];
     }
-    [self didReloadRecalledMessage:recalledMsgId];
+    [self didReloadRecalledMessage:recalledMsg.messageId];
+}
+
+- (void)removeMentionedMessage:(long )curMessageId {
+    if (self.unreadMentionedMessages.count <= 0 || !curMessageId) {
+        return;
+    }
+    NSArray *tempUnreadMentionedMessages = self.unreadMentionedMessages;
+    for (RCMessage *message in tempUnreadMentionedMessages) {
+        if (message.messageId == curMessageId) {
+            [self.unreadMentionedMessages removeObject:message];
+            [self setupUnReadMentionedButton];
+            break;
+        }
+    }
 }
 
 - (void)didReloadRecalledMessage:(long)recalledMsgId {
@@ -698,8 +723,6 @@ static BOOL msgRoamingServiceAvailable = YES;
 }
 
 - (void)scrollToSuitablePosition {
-    //滚动到第一条未读的 @ 消息
-    [self scrollToFirstUnreadMentionedMessage];
     //滚动到用户指定时间的消息
     [self scrollToLocatedMessage];
 }
@@ -729,51 +752,144 @@ static BOOL msgRoamingServiceAvailable = YES;
 
 - (void)tapRightTopMsgUnreadButton {
     self.isLoadingHistoryMessage = YES;
-    if (self.firstUnreadMessage) {
-        [self.chatVC.conversationDataRepository removeAllObjects]; //移除所有的已经加载的消息，页面只剩下从第一条未读开始的消息
-        NSArray *__messageArray = [[RCIMClient sharedRCIMClient] getHistoryMessages:self.chatVC.conversationType
-                                                                           targetId:self.chatVC.targetId
-                                                                         objectName:nil
-                                                                      baseMessageId:self.firstUnreadMessage.messageId
-                                                                          isForward:NO
-                                                                              count:20];
-        NSArray *tempArray = [[__messageArray reverseObjectEnumerator] allObjects];
-        NSMutableArray *oldMessageArray = [NSMutableArray arrayWithArray:tempArray];
-        [oldMessageArray addObject:self.firstUnreadMessage];
+    [self getSpecifiedPositionMessage:self.firstUnreadMessage ifUnReadMentionedButton:NO];
+}
+
+- (void)addOldMessageNotificationMessage {
+    if (self.chatVC.unReadButton != nil && self.chatVC.enableUnreadMessageIcon) {
+        //如果会话里都是未注册自定义消息，这时获取到的数据源是 0，点击右上角未读按钮会崩溃
+        if (self.chatVC.conversationDataRepository.count > 0) {
+            RCOldMessageNotificationMessage *oldMessageTip = [[RCOldMessageNotificationMessage alloc] init];
+            RCMessage *oldMessage = [[RCMessage alloc] initWithType:self.chatVC.conversationType
+                                                           targetId:self.chatVC.targetId
+                                                          direction:MessageDirection_SEND
+                                                          messageId:-1
+                                                            content:oldMessageTip];
+            RCMessageModel *model = [RCMessageModel modelWithMessage:oldMessage];
+            RCMessageModel *lastMessageModel = [self.chatVC.conversationDataRepository objectAtIndex:0];
+            model.messageId = lastMessageModel.messageId;
+            [self.chatVC.conversationDataRepository insertObject:model atIndex:0];
+        }
+        [self.chatVC.unReadButton removeFromSuperview];
+        self.chatVC.unReadButton = nil;
+        self.chatVC.unReadMessage = 0;
+    }
+}
+
+- (void)getSpecifiedPositionMessage:(RCMessage *)baseMeassage ifUnReadMentionedButton:(BOOL)ifUnReadMentionedButton{
+    [self.chatVC.conversationDataRepository removeAllObjects]; //移除所有的已经加载的消息，页面只剩下从第一条未读开始的消息
+    NSArray *__messageArray;
+    NSArray *tempArray;
+    NSMutableArray *oldMessageArray;
+    BOOL ifNewMsgMentioned = NO;
+    RCMessage * firstNewMsg = self.unreadNewMsgArr.firstObject;
+    if (firstNewMsg && baseMeassage.sentTime >= firstNewMsg.sentTime && ifUnReadMentionedButton) {
+        //点击的是新消息中的@消息
+        __messageArray = [[RCIMClient sharedRCIMClient] getHistoryMessages:self.chatVC.conversationType
+                                                                  targetId:self.chatVC.targetId
+                                                                  sentTime:baseMeassage.sentTime
+                                                               beforeCount:self.chatVC.defaultLocalHistoryMessageCount
+                                                                afterCount:self.chatVC.defaultLocalHistoryMessageCount];
+        oldMessageArray = [[NSMutableArray arrayWithArray:__messageArray] mutableCopy];
         [self.chatVC.util sendReadReceiptResponseForMessages:oldMessageArray.copy];
         for (int i = 0; i < oldMessageArray.count; i++) {
             RCMessage *rcMsg = [oldMessageArray objectAtIndex:i];
             RCMessageModel *model = [RCMessageModel modelWithMessage:rcMsg];
             [self pushOldMessageModel:model];
         }
-        if (self.firstUnreadMessage && self.chatVC.enableUnreadMessageIcon) {
-            //如果会话里都是未注册自定义消息，这时获取到的数据源是 0，点击右上角未读按钮会崩溃
-            if (self.chatVC.conversationDataRepository.count > 0) {
-                RCOldMessageNotificationMessage *oldMessageTip = [[RCOldMessageNotificationMessage alloc] init];
-                RCMessage *oldMessage = [[RCMessage alloc] initWithType:self.chatVC.conversationType
-                                                               targetId:self.chatVC.targetId
-                                                              direction:MessageDirection_SEND
-                                                              messageId:-1
-                                                                content:oldMessageTip];
-                RCMessageModel *model = [RCMessageModel modelWithMessage:oldMessage];
-                RCMessageModel *lastMessageModel = [self.chatVC.conversationDataRepository objectAtIndex:0];
-                model.messageId = lastMessageModel.messageId;
-                [self.chatVC.conversationDataRepository insertObject:model atIndex:0];
-            }
-            [self.chatVC.unReadButton removeFromSuperview];
-            self.chatVC.unReadButton = nil;
-            self.firstUnreadMessage = nil;
-            self.chatVC.unReadMessage = 0;
-        }
 
-        [self.chatVC.util figureOutAllConversationDataRepository];
-        [self.chatVC.conversationMessageCollectionView reloadData];
-        if (self.chatVC.conversationDataRepository.count > 0) {
+        ifNewMsgMentioned = YES;
+        //判断是否是最后一条消息
+        NSArray *latestMessageArray = [[RCIMClient sharedRCIMClient] getLatestMessages:self.chatVC.conversationType targetId:self.chatVC.targetId count:1];
+        if (latestMessageArray.count > 0) {
+            RCMessage *curLastMessage = [oldMessageArray firstObject];
+            RCMessage *latestMessage = [latestMessageArray lastObject];
+            if (latestMessage.messageId == curLastMessage.messageId) {
+                self.chatVC.unreadRightBottomIcon.hidden = YES;
+                [self.unreadNewMsgArr removeAllObjects];
+            }
+        }
+    }else {
+        __messageArray = [[RCIMClient sharedRCIMClient] getHistoryMessages:self.chatVC.conversationType
+                                                                  targetId:self.chatVC.targetId
+                                                                objectName:nil
+                                                             baseMessageId:baseMeassage.messageId
+                                                                 isForward:NO
+                                                                     count:self.chatVC.defaultLocalHistoryMessageCount];
+        tempArray = [[__messageArray reverseObjectEnumerator] allObjects];
+        oldMessageArray = [NSMutableArray arrayWithArray:tempArray];
+        [oldMessageArray addObject:baseMeassage];
+        [self.chatVC.util sendReadReceiptResponseForMessages:oldMessageArray.copy];
+        for (int i = 0; i < oldMessageArray.count; i++) {
+            RCMessage *rcMsg = [oldMessageArray objectAtIndex:i];
+            RCMessageModel *model = [RCMessageModel modelWithMessage:rcMsg];
+            [self pushOldMessageModel:model];
+        }
+        ifNewMsgMentioned = NO;
+    }
+    [self.chatVC.util figureOutAllConversationDataRepository];
+    if (ifUnReadMentionedButton) {
+        //点击的未读@消息数按钮
+        if (self.chatVC.enableUnreadMessageIcon && self.firstUnreadMessage && baseMeassage && baseMeassage.messageId == self.firstUnreadMessage.messageId) {
+            [self addOldMessageNotificationMessage];
+        }
+    }else {
+        //点击的未读消息数按钮
+        [self addOldMessageNotificationMessage];
+    }
+    [self scrollToSpecifiedPosition:ifNewMsgMentioned baseMeassage:baseMeassage];
+}
+
+- (void)scrollToSpecifiedPosition:(BOOL)ifUnReadMentioned baseMeassage:(RCMessage *)baseMeassage{
+    [self.chatVC.conversationMessageCollectionView reloadData];
+    if (self.chatVC.conversationDataRepository.count > 0) {
+        if (ifUnReadMentioned) {
+            for (int i = 0; i < self.chatVC.conversationDataRepository.count; i++) {
+                RCMessageModel *model = self.chatVC.conversationDataRepository[i];
+                if (baseMeassage.messageId == model.messageId) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                    [self.chatVC.conversationMessageCollectionView scrollToItemAtIndexPath:indexPath
+                                                                   atScrollPosition:UICollectionViewScrollPositionTop
+                                                                           animated:NO];
+                    break;
+                }
+            }
+        }else {
             [self.chatVC.conversationMessageCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]
                                                            atScrollPosition:UICollectionViewScrollPositionTop
                                                                    animated:YES];
         }
+        
     }
+}
+
+- (void)setupUnReadMentionedButton {
+    if (self.unreadMentionedMessages && self.chatVC.enableUnreadMentionedIcon == YES) {
+        if (self.unreadMentionedMessages.count == 0) {
+            self.chatVC.unReadMentionedButton.hidden = YES;
+        }else{
+            self.chatVC.unReadMentionedButton.hidden = NO;
+            NSString *unReadMentionedMessagesCount = [NSString stringWithFormat:@"%ld", (long)self.unreadMentionedMessages.count];
+            NSString *stringUnReadMentioned = [NSString stringWithFormat:NSLocalizedStringFromTable(@"HaveMentionedMeCount", @"RongCloudKit", nil), unReadMentionedMessagesCount];
+            
+            self.chatVC.unReadMentionedLabel.text = stringUnReadMentioned;
+            [self.chatVC.util adaptUnreadButtonSize:self.chatVC.unReadMentionedLabel];
+        }
+    }else {
+        self.chatVC.unReadMentionedButton.hidden = YES;
+    }
+}
+
+- (void)tapRightTopUnReadMentionedButton:(UIButton *)sender {
+    if (self.unreadMentionedMessages.count <= 0) {
+        return;
+    }
+    
+    RCMessage *firstUnReadMentionedMessagge = [self.unreadMentionedMessages firstObject];
+    [self getSpecifiedPositionMessage:firstUnReadMentionedMessagge ifUnReadMentionedButton:YES];
+    [self.unreadMentionedMessages removeObject:firstUnReadMentionedMessagge];
+    [self setupUnReadMentionedButton];
+
 }
 
 - (BOOL)isShowUnreadView:(RCMessageModel *)model {

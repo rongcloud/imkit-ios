@@ -403,7 +403,7 @@
 ////取当前界面中一定数量的图片
 - (void)getMessageFromModel:(RCMessageModel *)model {
     if (!model) {
-        NSLog(@"传入的参数不允许是 nil");
+        NSLog(@"Parameters are not allowed to be nil");
         return;
     }
     NSMutableArray *ImageArr = [[NSMutableArray alloc] init];

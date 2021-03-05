@@ -206,10 +206,11 @@
         @"messageId" : @(message.messageId),
         @"sentStatus" : @(SentStatus_FAILED),
         @"error" : @(nErrorCode),
-        @"content" : message.content
+        @"content" : message.content,
+        @"resend":@"resend"
     };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RCKitSendingMessageNotification"
-                                                        object:message
+                                                        object:nil
                                                       userInfo:statusDic];
 }
 

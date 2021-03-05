@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/RCCoreClient.h</key>
 		<data>
-		uIHMORlBJaAGgHZJRxIWZzoFTQQ=
+		HAY7BxyjUE+UqmMIjgvngD+Q4LE=
 		</data>
 		<key>Headers/RCDownloadItem.h</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Headers/RCStatusDefine.h</key>
 		<data>
-		LfUIsbkK77vbHWe6zf9i8GFNiso=
+		zRsH/NFFgFcmE7TwQKyvVWKp+lc=
 		</data>
 		<key>Headers/RCStatusMessage.h</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>Headers/RCUtilities.h</key>
 		<data>
-		ZtwE+qJ0phjQjXSIT7zS7Vk3nhM=
+		WCYjtKF4yRzg49XWlfYuOMnXQr8=
 		</data>
 		<key>Headers/RCVoiceMessage.h</key>
 		<data>
@@ -218,7 +218,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fyhu+IpiO4BoErZFgRsNg467CRE=
+		BS87FSB/zAEz7NbKNNnyOXeCpzg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -308,11 +308,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uIHMORlBJaAGgHZJRxIWZzoFTQQ=
+			HAY7BxyjUE+UqmMIjgvngD+Q4LE=
 			</data>
 			<key>hash2</key>
 			<data>
-			DlBc46GfXC8VBAKKsOvDBCB/m3VztCTGARzYHWQ5RUc=
+			xxezl28uenzxIRlmIF3jpclzHu1DwUxGvu1jj3YgTjA=
 			</data>
 		</dict>
 		<key>Headers/RCDownloadItem.h</key>
@@ -627,11 +627,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LfUIsbkK77vbHWe6zf9i8GFNiso=
+			zRsH/NFFgFcmE7TwQKyvVWKp+lc=
 			</data>
 			<key>hash2</key>
 			<data>
-			oUP0n8BCIGpOmlfpsbFd5/DESfvaetB7vF+LwMt1YhU=
+			U87xllx/h1zzXAhmDrYWrfOoehyw7tLNCK9w7b0dhV0=
 			</data>
 		</dict>
 		<key>Headers/RCStatusMessage.h</key>
@@ -737,11 +737,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZtwE+qJ0phjQjXSIT7zS7Vk3nhM=
+			WCYjtKF4yRzg49XWlfYuOMnXQr8=
 			</data>
 			<key>hash2</key>
 			<data>
-			iRWxvvqnDy/QThl6cQVVQUvEt88ZWG84Jdod/KPkmvY=
+			A2RkxwLk8YHWZjDpmOTZWAX7NKSR78Tdq6+TlgByv4I=
 			</data>
 		</dict>
 		<key>Headers/RCVoiceMessage.h</key>

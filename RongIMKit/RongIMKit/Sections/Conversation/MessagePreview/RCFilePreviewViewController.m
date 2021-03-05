@@ -212,7 +212,7 @@ extern NSString *const RCKitDispatchDownloadMediaNotification;
 
 - (void)openInOtherApp:(NSString *)localPath {
     if (!localPath) {
-        NSLog(@"localPath 不允许是 nil");
+        NSLog(@"Localpath does not allow nil");
         return;
     }
     UIActivityViewController *activityVC =

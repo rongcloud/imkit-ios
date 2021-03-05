@@ -459,7 +459,7 @@
                 [self.mentionedRangeInfoList removeAllObjects];
             }
         }
-        DebugLog(@"回车调用 inputTextViewDidChange");
+        DebugLog(@"Enter key call inputTextViewDidChange");
         return NO;
     }
 

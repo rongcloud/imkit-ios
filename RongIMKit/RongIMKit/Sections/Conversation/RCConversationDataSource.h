@@ -27,6 +27,8 @@
 // 用于统计在当前页面时右下角未读数的显示
 @property (nonatomic, strong) NSMutableArray *unreadNewMsgArr;
 
+@property (nonatomic, strong) NSMutableArray *unreadMentionedMessages;
+
 //进入聊天页面初次加载的消息
 - (void)getInitialMessage:(RCConversation *)conversation;
 
@@ -41,7 +43,7 @@
 
 - (void)appendAndDisplayMessage:(RCMessage *)rcMessage;
 //撤回消息
-- (void)didRecallMessage:(long)recalledMsgId;
+- (void)didRecallMessage:(RCMessage *)recalledMsg;
 //刷新被撤回消息的 UI
 - (void)didReloadRecalledMessage:(long)recalledMsgId;
 
@@ -57,10 +59,15 @@
 - (void)tapRightBottomMsgCountIcon:(UIGestureRecognizer *)gesture;
 //点击右上角未读消息个数的按钮
 - (void)tapRightTopMsgUnreadButton;
+- (void)tapRightTopUnReadMentionedButton:(UIButton *)sender;
 //viewWillDisappear 清空未读的 @ 消息
 - (void)clearUnreadMentionedMessages;
 
 - (void)quitChatRoomIfNeed;
+
+- (void)setupUnReadMentionedButton;
+
+- (void)removeMentionedMessage:(long )curMessageId;
 
 #pragma mark - Notification
 //处理聊天页面收到的消息

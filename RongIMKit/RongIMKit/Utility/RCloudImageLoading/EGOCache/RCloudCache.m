@@ -25,6 +25,7 @@
 //
 
 #import "RCloudCache.h"
+#import "RCKitCommonDefine.h"
 
 #if DEBUG
 #define CHECK_FOR_EGOCACHE_PLIST()                                                                                     \

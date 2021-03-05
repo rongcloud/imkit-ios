@@ -379,36 +379,43 @@
 }
 
 - (void)adaptUnreadButtonSize:(UILabel *)sender {
-    CGRect rect = [sender.text boundingRectWithSize:CGSizeMake(2000, self.chatVC.unReadButton.frame.size.height)
+    UIButton * senderButton;
+    if (sender.tag == 1001) {
+        senderButton = self.chatVC.unReadButton;
+    }else {
+        senderButton = self.chatVC.unReadMentionedButton;
+    }
+    CGRect temBut = senderButton.frame;
+
+    CGRect rect = [sender.text boundingRectWithSize:CGSizeMake(2000, senderButton.frame.size.height)
                                             options:(NSStringDrawingUsesLineFragmentOrigin)
                                          attributes:@{
                                              NSFontAttributeName : [[RCKitConfig defaultConfig].font fontOfFourthLevel]
                                          }
                                             context:nil];
-    CGRect temBut = self.chatVC.unReadButton.frame;
     CGFloat arrowLeft = 19;
     CGFloat arrowWidth = 10;
     CGFloat arrowAndTextSpace = 5;
     CGFloat textRight = 4;
     temBut.size.width = arrowLeft + arrowWidth + arrowAndTextSpace + rect.size.width + textRight;
     temBut.origin.x = self.chatVC.view.frame.size.width - temBut.size.width;
-    self.chatVC.unReadButton.frame = temBut;
+    senderButton.frame = temBut;
     sender.frame = CGRectMake(temBut.size.width - textRight - rect.size.width, 0, rect.size.width, temBut.size.height);
     UIImage *image = RCResourceImage(@"up");
     if ([RCKitUtility isRTL]) {
         temBut.origin.x = 0;
-        self.chatVC.unReadButton.frame = temBut;
+        senderButton.frame = temBut;
         sender.frame = CGRectMake(4, 0, rect.size.width, temBut.size.height);
         image = [image imageFlippedForRightToLeftLayoutDirection];
     } else {
         temBut.origin.x = self.chatVC.view.frame.size.width - temBut.size.width;
-        self.chatVC.unReadButton.frame = temBut;
+        senderButton.frame = temBut;
         sender.frame = CGRectMake(temBut.size.width - 4 - rect.size.width, 0, rect.size.width, temBut.size.height);
     }
     image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.width * 0.2, image.size.width * 0.8,
                                                                 image.size.width * 0.2, image.size.width * 0.2)
                                   resizingMode:UIImageResizingModeStretch];
-    [self.chatVC.unReadButton setBackgroundImage:image forState:UIControlStateNormal];
+    [senderButton setBackgroundImage:image forState:UIControlStateNormal];
     CGRect imageViewFrame = CGRectMake(arrowLeft,(temBut.size.height- 9)/2, arrowWidth, 9);
     if ([RCKitUtility isRTL]) {
         imageViewFrame = CGRectMake(temBut.size.width - arrowLeft - arrowWidth, (temBut.size.height- 9)/2, arrowWidth, 9);
@@ -418,7 +425,7 @@
     center.y = sender.center.y;
     imageView.center = center;
     imageView.image = RCResourceImage(@"arrow");
-    [self.chatVC.unReadButton addSubview:imageView];
+    [senderButton addSubview:imageView];
 }
 
 #pragma mark - 回执请求及响应处理， 同步阅读状态

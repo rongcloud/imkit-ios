@@ -481,7 +481,7 @@ typedef NS_ENUM(NSInteger, RCConnectionStatus) {
     ConnectionStatus_Unconnected = 11,
 
     /*!
-     已注销
+     已登出
      */
     ConnectionStatus_SignOut = 12,
 

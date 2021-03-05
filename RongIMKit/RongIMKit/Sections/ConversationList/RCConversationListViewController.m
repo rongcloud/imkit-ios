@@ -140,11 +140,9 @@
         RCConversationBaseCell *userCustomCell =
             [self rcConversationListTableView:tableView cellForRowAtIndexPath:indexPath];
         if (!userCustomCell) {
-            NSLog(@"自定义显示的 cell 返回为 nil, "
-                  @"如果会话类型是系统消息类型，并且是 RCContactNotificationMessage "
-                  @"类型的消息，需要自定义 "
-                  @"cell "
-                  @"显示");
+            NSLog(@"The custom cell is returned as nil, "
+                  @"if the conversationModelType is RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION，and the message type is RCContactNotificationMessage "
+                  @"needs customized cell to display");
         }
         userCustomCell.selectionStyle = UITableViewCellSelectionStyleDefault;
         [userCustomCell setDataModel:model];
@@ -180,8 +178,8 @@
     RCConversationModel *model = self.dataSource.dataList[indexPath.row];
 
     if (model.conversationModelType == RC_CONVERSATION_MODEL_TYPE_PUBLIC_SERVICE) {
-        NSLog(@"从SDK 2.3.0版本开始, 公众号会话点击处理放到demo中处理, "
-              @"请参考RCDChatListViewController文件中的onSelectedTableRow函数");
+        NSLog(@"Starting from SDK version 2.3.0,publicservice is processed in demo, "
+              @"please Refer to onSelectedTableRow function in the RCDChatListViewController");
     }
     [self onSelectedTableRow:model.conversationModelType conversationModel:model atIndexPath:indexPath];
 }

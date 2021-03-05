@@ -7,8 +7,7 @@
 //
 
 #import "RCSightCollectionViewCell.h"
-#import <RongIMKit/RCKitUtility.h>
-#import <RongIMKit/RCMessageModel.h>
+#import "RongIMKit.h"
 #import "RCIMClient+Destructing.h"
 #import "RCSightPlayerController+imkit.h"
 
@@ -62,7 +61,7 @@
     } else if (sightMessage.sightUrl != nil && sightMessage.sightUrl.length > 0) {
         localPath = [RCFileUtility getSightCachePath:sightMessage.sightUrl];
     } else {
-        RCLogV(@"localPath 和 sightUrl 为空");
+        RCLogV(@"LocalPath and sightUrl are nil");
     }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:localPath]) {
@@ -180,7 +179,7 @@
     } else if (sightMessage.sightUrl != nil && sightMessage.sightUrl.length > 0) {
         localPath = [RCFileUtility getSightCachePath:sightMessage.sightUrl];
     } else {
-        RCLogV(@"localPath 和 sightUrl 为空");
+        RCLogV(@"LocalPath and sightUrl are nil");
     }
 
     if (localPath && [[NSFileManager defaultManager] fileExistsAtPath:localPath]) {

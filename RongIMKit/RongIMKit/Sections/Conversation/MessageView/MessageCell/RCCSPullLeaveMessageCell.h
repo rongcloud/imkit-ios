@@ -7,7 +7,7 @@
 //
 
 #import "RCAttributedLabel.h"
-#import <RongIMKit/RongIMKit.h>
+#import "RongIMKit.h"
 @interface RCCSPullLeaveMessageCell : RCMessageBaseCell <RCAttributedLabelDelegate>
 @property (nonatomic, strong) RCAttributedLabel *contentLabel;
 @end

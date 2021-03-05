@@ -176,7 +176,7 @@
 "Wait"="Please wait a moment...";
 "Searching"="Searching...";
 "Search"="Search:";
-"Right_unReadMessage"="%@ new message";
+"Right_unReadMessage"="%@ new messages";
 "HistoryMessageTip"="Above is the historical messages";
 "DISCUSSION"="Discussion";
 "DateFormat"="MM-dd";
@@ -210,6 +210,7 @@
 "ImageHasBeenDeleted"="The image has been deleted";
 "HaveMentioned"="[You were mentioned]";
 "HaveMentionedForNotification"="You were mentioned ";
+"HaveMentionedMeCount" = "@(%@)";
 "chatDate"="d MMM yyyy";
 "chatListDate"="M/d/yyyy";
 "locale"="en_US";

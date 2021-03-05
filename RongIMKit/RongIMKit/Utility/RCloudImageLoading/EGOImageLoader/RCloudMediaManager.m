@@ -7,6 +7,7 @@
 //
 
 #import "RCloudMediaManager.h"
+#import "RCKitCommonDefine.h"
 
 #define kDestImageSizeMB 200.0f      // 预定目标图片最大大小
 #define kSourceImageTileSizeMB 40.0f // 原图片分块大小

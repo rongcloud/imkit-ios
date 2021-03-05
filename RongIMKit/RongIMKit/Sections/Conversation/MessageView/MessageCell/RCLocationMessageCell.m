@@ -12,10 +12,13 @@
 #import "RCKitCommonDefine.h"
 #import "RCMessageCellTool.h"
 #import "RCKitConfig.h"
-//写死尺寸 408*240
-//这个尺寸在生成缩略图的地方有定义，还有发送位置消息时对尺寸有裁剪。如果修改尺寸，需要把对应的地方同时修改
-#define TARGET_LOCATION_THUMB_WIDTH 408
-#define TARGET_LOCATION_THUMB_HEIGHT 240
+
+@interface RCLocalConfiguration : NSObject
++ (instancetype)sharedInstance;
+@property (nonatomic, readonly) float locationImageQuality;
+@property (nonatomic, readonly) float locationImageWidth;
+@property (nonatomic, readonly) float locationImageHeight;
+@end
 
 @interface RCLocationMessageCell ()
 @property (nonatomic, strong) UIImageView *maskView;
@@ -46,7 +49,8 @@
 + (CGSize)sizeForMessageModel:(RCMessageModel *)model
       withCollectionViewWidth:(CGFloat)collectionViewWidth
          referenceExtraHeight:(CGFloat)extraHeight {
-    CGFloat __messagecontentview_height = TARGET_LOCATION_THUMB_HEIGHT / 2.0f;
+    float configImageHeight = [RCLocalConfiguration sharedInstance].locationImageHeight;
+    CGFloat __messagecontentview_height = configImageHeight / 2.0f;
 
     if (__messagecontentview_height < RCKitConfigCenter.ui.globalMessagePortraitSize.height) {
         __messagecontentview_height = RCKitConfigCenter.ui.globalMessagePortraitSize.height;
@@ -105,7 +109,9 @@
     RCLocationMessage *locationMessage = (RCLocationMessage *)self.model.content;
     if (locationMessage) {
         self.locationNameLabel.text = [@"  " stringByAppendingString:locationMessage.locationName ?: @""];
-        CGSize imageSize = CGSizeMake(TARGET_LOCATION_THUMB_WIDTH / 2.0f, TARGET_LOCATION_THUMB_HEIGHT / 2.0f);
+        float configImageWidth = [RCLocalConfiguration sharedInstance].locationImageWidth;
+        float configImageHeight = [RCLocalConfiguration sharedInstance].locationImageHeight;
+        CGSize imageSize = CGSizeMake(configImageWidth / 2.0f, configImageHeight / 2.0f);
         self.pictureView.image = locationMessage.thumbnailImage;
         self.shadowMaskView.image = nil;
         self.messageContentView.contentSize = imageSize;
@@ -130,7 +136,7 @@
     if (!_pictureView) {
         _pictureView = [[UIImageView alloc] initWithFrame:CGRectZero];
         _pictureView.clipsToBounds = YES;
-        _pictureView.contentMode = UIViewContentModeScaleToFill;
+        _pictureView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _pictureView;
 }

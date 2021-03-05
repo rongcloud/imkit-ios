@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Location</key>
+	<dict>
+		<key>LocationImageQuality</key>
+		<real>0.7</real>
+		<key>LocationImageWidth</key>
+		<string>480</string>
+		<key>LocationImageHeight</key>
+		<string>240</string>
+	</dict>
 	<key>File</key>
 	<dict>
 		<key>RelativePath</key>
@@ -16,6 +25,12 @@
 	</dict>
 	<key>Image</key>
 	<dict>
+		<key>ThumbnailQuality</key>
+		<string>0.3</string>
+		<key>ThumbnailWidth</key>
+		<string>240</string>
+		<key>ThumbnailHeight</key>
+		<string>240</string>
 		<key>ImageQuality</key>
 		<real>0.85</real>
 		<key>ImageWidth</key>
