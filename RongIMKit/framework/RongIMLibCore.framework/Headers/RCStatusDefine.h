@@ -256,6 +256,11 @@ typedef NS_ENUM(NSInteger, RCErrorCode) {
      刚加入聊天室时调用获取 KV 接口，极限情况下会存在本地数据和服务器未同步完成的情况，建议延时一段时间再获取
      */
     RC_KV_STORE_NOT_SYNC = 34004,
+    
+    /*!
+     聊天室被重置
+    */
+    RC_CHATROOM_RESET = 33009,
 
     /*!
      当前连接不可用（连接已经被释放）
@@ -299,6 +304,21 @@ typedef NS_ENUM(NSInteger, RCErrorCode) {
      历史消息云存储业务未开通。可以在融云开发者后台中开启该服务。
      */
     MSG_ROAMING_SERVICE_UNAVAILABLE = 33007,
+    
+    /*!
+     标签不存在
+     */
+    RC_TAG_NOT_EXIST = 33100,
+    
+    /*!
+     标签已存在
+     */
+    RC_TAG_ALREADY_EXISTS = 33101,
+    
+    /*!
+     会话中不存在对应标签
+     */
+    RC_TAG_INVALID_FOR_CONVERSATION = 33102,
     
     /*!
      公众号非法类型，针对会话类型：ConversationType_APPSERVICE
@@ -374,6 +394,11 @@ typedef NS_ENUM(NSInteger, RCErrorCode) {
     push 设置参数无效。请确认是否正确的填写了 push 参数。
      */
     RC_PUSHSETTING_PARAMETER_INVALID = 26001,
+    
+    /*!
+     用户标签个数超限，最多支持添加 20 个标签
+     */
+    RC_TAG_LIMIT_EXCEED = 26004,
 
     /*!
     操作被禁止。 此错误码已被弃用。
@@ -432,6 +457,26 @@ typedef NS_ENUM(NSInteger, RCErrorCode) {
      媒体消息媒体文件 http  上传失败
      */
     RC_FILE_UPLOAD_FAILED = 34011,
+    
+    /*!
+     指定的会话类型不支持标签功能，会话标签仅支持单群聊会话、系统会话
+     */
+    RC_CONVERSATION_TAG_INVALID_CONVERSATION_TYPE = 34012,
+    
+    /*!
+     批量处理指定标签的会话个数超限，批量处理会话个数最大为 1000
+     */
+    RC_CONVERSATION_TAG_LIMIT_EXCEED = 34013,
+    
+    /*!
+     群已读回执版本不支持
+     */
+    RC_Group_Read_Receipt_Version_Not_Support = 34014,
+    
+    /*!
+     视频消息压缩失败
+     */
+    RC_SIGHT_COMPRESS_FAILED = 34015,
 };
 
 typedef NS_ENUM(NSInteger, RCDBErrorCode) {

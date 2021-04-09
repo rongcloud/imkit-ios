@@ -27,10 +27,10 @@
 	<dict>
 		<key>ThumbnailQuality</key>
 		<string>0.3</string>
-		<key>ThumbnailWidth</key>
-		<string>240</string>
-		<key>ThumbnailHeight</key>
-		<string>240</string>
+        <key>ThumbnailMaxSize</key>
+        <string>240</string>
+        <key>ThumbnailMinSize</key>
+        <string>100</string>
 		<key>ImageQuality</key>
 		<real>0.85</real>
 		<key>ImageWidth</key>

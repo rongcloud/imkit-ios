@@ -31,8 +31,5 @@
  被引用消息体
  */
 @property (nonatomic, strong) RCMessageContent *referMsg;
-/*!
- 扩展字段
- */
-@property (nonatomic, strong) NSString *extra;
+
 @end

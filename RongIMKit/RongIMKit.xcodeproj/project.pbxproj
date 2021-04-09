@@ -86,6 +86,12 @@
 		27AA677924A20B5D00265F52 /* RCKitMessageConf.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA677724A20B5D00265F52 /* RCKitMessageConf.m */; };
 		27AA677C24A20ED300265F52 /* RCKitUIConf.h in Headers */ = {isa = PBXBuildFile; fileRef = 27AA677A24A20ED300265F52 /* RCKitUIConf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27AA677D24A20ED300265F52 /* RCKitUIConf.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA677B24A20ED300265F52 /* RCKitUIConf.m */; };
+		27E3455C25F75D6D000C1E84 /* RongIMLibCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E3455B25F75D6D000C1E84 /* RongIMLibCore.framework */; };
+		27E3456025F75D77000C1E84 /* RongLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E3455F25F75D77000C1E84 /* RongLocation.framework */; };
+		27E3456325F75DBB000C1E84 /* RongChatRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A296CD20256BC500008C91C7 /* RongChatRoom.framework */; };
+		27E3456625F75DBE000C1E84 /* RongCustomerService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A296CD1F256BC500008C91C7 /* RongCustomerService.framework */; };
+		27E3456925F75DC1000C1E84 /* RongDiscussion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A296CD22256BC500008C91C7 /* RongDiscussion.framework */; };
+		27E3456C25F75DC3000C1E84 /* RongPublicService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A296CD23256BC501008C91C7 /* RongPublicService.framework */; };
 		3B117FED256CFD50001E5105 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A296CD29256BC521008C91C7 /* RongIMLib.framework */; };
 		3B2739372502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B2739352502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.h */; };
 		3B2739382502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2739362502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.m */; };
@@ -607,6 +613,8 @@
 		27AA677724A20B5D00265F52 /* RCKitMessageConf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCKitMessageConf.m; sourceTree = "<group>"; };
 		27AA677A24A20ED300265F52 /* RCKitUIConf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCKitUIConf.h; sourceTree = "<group>"; };
 		27AA677B24A20ED300265F52 /* RCKitUIConf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCKitUIConf.m; sourceTree = "<group>"; };
+		27E3455B25F75D6D000C1E84 /* RongIMLibCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongIMLibCore.framework; path = framework/RongIMLibCore.framework; sourceTree = "<group>"; };
+		27E3455F25F75D77000C1E84 /* RongLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RongLocation.framework; path = framework/RongLocation.framework; sourceTree = "<group>"; };
 		3B2739352502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCPhotoPreviewCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		3B2739362502499000BA7CB2 /* RCPhotoPreviewCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCPhotoPreviewCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		3B60A4D623B45E34006A36DC /* RCReeditMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCReeditMessageManager.h; sourceTree = "<group>"; };
@@ -846,7 +854,6 @@
 		A2B15CBF2450324E0090FE78 /* RCCSEvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCSEvaluateView.h; sourceTree = "<group>"; };
 		A2B15CC02450324E0090FE78 /* RCCSStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCSStarView.h; sourceTree = "<group>"; };
 		A2B15CD2245037B20090FE78 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		A2B15CD3245037B20090FE78 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B15D9A245040110090FE78 /* RCExtensionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExtensionModule.h; sourceTree = "<group>"; };
 		A2B15D9B245040110090FE78 /* RCExtensionModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCExtensionModuleManager.m; sourceTree = "<group>"; };
 		A2B15D9C245040110090FE78 /* RCExtensionPluginItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCExtensionPluginItemInfo.h; sourceTree = "<group>"; };
@@ -940,6 +947,7 @@
 		A2B6CFF5247CC87600A391E3 /* RCExtensionKitDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCExtensionKitDefine.h; sourceTree = "<group>"; };
 		A2C60C3724B70E6000A2B1F1 /* RCEmojiTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCEmojiTabView.h; sourceTree = "<group>"; };
 		A2C60C3824B70E6000A2B1F1 /* RCEmojiTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCEmojiTabView.m; sourceTree = "<group>"; };
+		A2CF53C92614673E002E3F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = RongIMKit/Info.plist; sourceTree = SOURCE_ROOT; };
 		A2EB78E52508774E003E4A4E /* RCProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCProgressView.h; sourceTree = "<group>"; };
 		A2EB78E62508774E003E4A4E /* RCProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCProgressView.m; sourceTree = "<group>"; };
 		A2F8BCD92491DD4F0046461C /* RCMessageCellTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCMessageCellTool.h; sourceTree = "<group>"; };
@@ -1080,6 +1088,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E49EC4521ABABC9900A0A267 /* AVFoundation.framework in Frameworks */,
+				27E3455C25F75D6D000C1E84 /* RongIMLibCore.framework in Frameworks */,
+				27E3456625F75DBE000C1E84 /* RongCustomerService.framework in Frameworks */,
+				27E3456925F75DC1000C1E84 /* RongDiscussion.framework in Frameworks */,
+				27E3456C25F75DC3000C1E84 /* RongPublicService.framework in Frameworks */,
+				27E3456325F75DBB000C1E84 /* RongChatRoom.framework in Frameworks */,
+				27E3456025F75D77000C1E84 /* RongLocation.framework in Frameworks */,
 				3B117FED256CFD50001E5105 /* RongIMLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1551,9 +1565,11 @@
 		8CB682A21ABC21BE007A66FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27E3455B25F75D6D000C1E84 /* RongIMLibCore.framework */,
 				A296CD29256BC521008C91C7 /* RongIMLib.framework */,
 				A296CD20256BC500008C91C7 /* RongChatRoom.framework */,
 				A296CD1F256BC500008C91C7 /* RongCustomerService.framework */,
+				27E3455F25F75D77000C1E84 /* RongLocation.framework */,
 				A296CD22256BC500008C91C7 /* RongDiscussion.framework */,
 				A296CD23256BC501008C91C7 /* RongPublicService.framework */,
 				46788868243D709B00D302D5 /* RCConfig.plist */,
@@ -2165,7 +2181,7 @@
 			isa = PBXGroup;
 			children = (
 				A2B15CD2245037B20090FE78 /* PrefixHeader.pch */,
-				A2B15CD3245037B20090FE78 /* Info.plist */,
+				A2CF53C92614673E002E3F3A /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -3266,7 +3282,7 @@
 					"$(PROJECT_DIR)/framework",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongIMKit/Supporting Files/PrefixHeader.pch";
-				INFOPLIST_FILE = "RongIMKit/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RongIMKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3306,7 +3322,7 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongIMKit/Supporting Files/PrefixHeader.pch";
-				INFOPLIST_FILE = "RongIMKit/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RongIMKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

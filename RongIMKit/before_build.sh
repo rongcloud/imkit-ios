@@ -55,3 +55,5 @@ if [ -d ${REALTIMELOCATION_PATH}/bin ]; then
    echo "imkit build: copy location"
    cp -af ${REALTIMELOCATION_PATH}/bin/* ${KIT_FRAMEWORKER_PATH}/
 fi
+
+rm -rf ${KIT_FRAMEWORKER_PATH}/*.xcframework

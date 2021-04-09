@@ -94,6 +94,7 @@
                        targetId:(NSString *)targetId
                      messageUId:(NSString *)messageUId;
 
+
 /*!
  消息已读回执响应（收到阅读回执响应，可以按照 messageUId 更新消息的阅读数）
  @param messageUId       请求已读回执的消息ID
@@ -105,6 +106,7 @@
                         targetId:(NSString *)targetId
                       messageUId:(NSString *)messageUId
                       readerList:(NSMutableDictionary *)userIdList;
+
 
 @end
 

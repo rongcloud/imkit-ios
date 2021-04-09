@@ -34,10 +34,12 @@ CUR_TIME=$PPARAM
 fi
 done
 
-Bundle_Short_Version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" ./RongIMKit/Supporting\ Files/Info.plist)
-sed -i ""  -e '/CFBundleShortVersionString/{n;s/'${Bundle_Short_Version}'/'"$VER_FLAG"'/; }' ./RongIMKit/Supporting\ Files/Info.plist
-Bundle_Short_Version=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" ./RongIMKit/Supporting\ Files/Info.plist)
-sed -i ""  -e '/CFBundleVersion/{n;s/'${Bundle_Short_Version}'/'"$CUR_TIME"'/; }' ./RongIMKit/Supporting\ Files/Info.plist
+# 如果 framework 目录不存在，说明没有 copy 所以来的 SDK
+if [ ! -d "framework" ]; then
+    sh before_build.sh
+fi
+
+sed -i '' -e "s?imkit_Version_Unknown?${VER_FLAG}?g" ./RongIMKit/RCIM.m
 
 PROJECT_NAME="RongIMKit.xcodeproj"
 targetName="RongIMKit"

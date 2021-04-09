@@ -18,7 +18,7 @@
 #import <Foundation/Foundation.h>
 #import "RCMessageConfig.h"
 #import "RCMessagePushConfig.h"
-
+#import "RCGroupReadReceiptInfoV2.h"
 /*!
  消息实体类
 
@@ -35,6 +35,11 @@
  会话 ID
  */
 @property (nonatomic, copy) NSString *targetId;
+
+/*!
+ 所属会话的业务标识，长度限制 20 字符
+ */
+@property (nonatomic, copy) NSString *channelId;
 
 /*!
  消息的 ID
@@ -99,6 +104,13 @@
  阅读回执状态
  */
 @property (nonatomic, strong) RCReadReceiptInfo *readReceiptInfo;
+
+/*!
+ 群阅读回执状态
+ @discussion 如果是调用 RCGroupReadReceiptV2Manager 中方法实现群已读回执功能，此参数才有效，否则请使用 readReceiptInfo 属性获取阅读回执状态
+ @discussion 如果使用 IMKit，请用 readReceiptInfo 属性
+ */
+@property (nonatomic, strong) RCGroupReadReceiptInfoV2 *groupReadReceiptInfoV2;
 
 /*!
  消息配置

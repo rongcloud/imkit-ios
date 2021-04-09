@@ -27,6 +27,11 @@
 #import "RCSendMessageOption.h"
 #import "RCRemoteHistoryMsgOption.h"
 #import "RCIMClientProtocol.h"
+#import "RCTagInfo.h"
+#import "RCConversationIdentifier.h"
+#import "RCConversationTagInfo.h"
+#import "RCTagProtocol.h"
+#import "RCImageCompressConfig.h"
 
 /*!
  @const 收到已读回执的 Notification
@@ -40,6 +45,7 @@
  NSNumber *ctype = [notification.userInfo objectForKey:@"cType"];
  NSNumber *time = [notification.userInfo objectForKey:@"messageTime"];
  NSString *targetId = [notification.userInfo objectForKey:@"tId"];
+ NSString *channelId = [notification.userInfo objectForKey:@"cId"];
  NSString *fromUserId = [notification.userInfo objectForKey:@"fId"];
 
  收到这个消息之后可以更新这个会话中 messageTime 以前的消息 UI 为已读（底层数据库消息状态已经改为已读）。
@@ -99,7 +105,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
 
    - (void)application:(UIApplication *)application
    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-       [[RongCoreClient sharedCoreClient] setDeviceTokenData:deviceToken];
+       [[RCCoreClient sharedCoreClient] setDeviceTokenData:deviceToken];
    }
 @remarks 功能设置
 */
@@ -120,7 +126,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
     - (void)application:(UIApplication *)application
     didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSString *token = [self getHexStringForData:deviceToken];
-        [[RongCoreClient sharedCoreClient] setDeviceToken:token];
+        [[RCCoreClient sharedCoreClient] setDeviceToken:token];
     }
 
     - (NSString *)getHexStringForData:(NSData *)data {
@@ -257,9 +263,9 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  如果您使用 IMKit，请使用 RCIM 中的同名方法断开与融云服务器的连接，而不要使用此方法。
 
  isReceivePush 指断开与融云服务器的连接之后，是否还接收远程推送。
- [[RongCoreClient sharedCoreClient] disconnect:YES] 与 [[RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:YES] 与 [[RCCoreClient sharedCoreClient]
  disconnect] 完全一致；
- [[RongCoreClient sharedCoreClient] disconnect:NO] 与[ [RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:NO] 与[ [RCCoreClient sharedCoreClient]
  logout] 完全一致。
  您只需要按照您的需求，使用 disconnect: 与 disconnect 以及 logout 三个接口其中一个即可。
 
@@ -277,9 +283,9 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  @warning 如果您使用 IMLibCore，请使用此方法断开与融云服务器的连接；
  如果您使用 IMKit，请使用 RCIM 中的同名方法断开与融云服务器的连接，而不要使用此方法。
 
- [[RongCoreClient sharedCoreClient] disconnect:YES] 与 [[RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:YES] 与 [[RCCoreClient sharedCoreClient]
  disconnect] 完全一致；
- [[RongCoreClient sharedCoreClient] disconnect:NO] 与 [[RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:NO] 与 [[RCCoreClient sharedCoreClient]
  logout] 完全一致。
  您只需要按照您的需求，使用 disconnect: 与 disconnect 以及 logout 三个接口其中一个即可。
 
@@ -295,11 +301,11 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  所以除非您的 App 逻辑需要登出，否则一般不需要调用此方法进行手动断开。
 
  @warning 如果您使用 IMKit，请使用此方法断开与融云服务器的连接；
- 如果您使用 IMLibCore，请使用 RongCoreClient 中的同名方法断开与融云服务器的连接，而不要使用此方法。
+ 如果您使用 IMLibCore，请使用 RCCoreClient 中的同名方法断开与融云服务器的连接，而不要使用此方法。
 
- [[RongCoreClient sharedCoreClient] disconnect:YES] 与 [[RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:YES] 与 [[RCCoreClient sharedCoreClient]
  disconnect] 完全一致；
- [[RongCoreClient sharedCoreClient] disconnect:NO] 与 [[RongCoreClient sharedCoreClient]
+ [[RCCoreClient sharedCoreClient] disconnect:NO] 与 [[RCCoreClient sharedCoreClient]
  logout] 完全一致。
  您只需要按照您的需求，使用 disconnect: 与 disconnect 以及 logout 三个接口其中一个即可。
 
@@ -523,12 +529,12 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  自定义类型的消息，需要您自己设置 pushContent 和 pushData 来定义推送内容，否则将不会进行远程推送。
 
  如果您需要上传图片到自己的服务器，需要构建一个 RCImageMessage 对象，
- 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
 
  如果您需要上传文件到自己的服务器，构建一个 RCFileMessage 对象，
- 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
 
@@ -567,12 +573,12 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
 
  @discussion 此方法仅用于 IMKit。
  如果您需要上传图片到自己的服务器并使用 IMLibCore，构建一个 RCImageMessage 对象，
- 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
 
  如果您需要上传文件到自己的服务器并使用 IMLibCore，构建一个 RCFileMessage 对象，
- 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
 
@@ -588,6 +594,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
                         success:(void (^)(long messageId))successBlock
                           error:(void (^)(RCErrorCode errorCode, long messageId))errorBlock
                          cancel:(void (^)(long messageId))cancelBlock;
+
 /*!
  发送消息
  
@@ -640,12 +647,12 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  自定义类型的消息，需要您自己设置 pushContent 和 pushData 来定义推送内容，否则将不会进行远程推送。
  
  如果您需要上传图片到自己的服务器，需要构建一个 RCImageMessage 对象，
- 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCImageMessage 中的 imageUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
  
  如果您需要上传文件到自己的服务器，构建一个 RCFileMessage 对象，
- 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RongCoreClient 的
+ 并将 RCFileMessage 中的 fileUrl 字段设置为上传成功的 URL 地址，然后使用 RCCoreClient 的
  sendMessage:targetId:content:pushContent:pushData:success:error:方法
  或 sendMessage:targetId:content:pushContent:success:error:方法进行发送，不要使用此方法。
  
@@ -692,6 +699,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
                             targetId:(NSString *)targetId
                           sentStatus:(RCSentStatus)sentStatus
                              content:(RCMessageContent *)content;
+
 /*!
  插入向外发送的、指定时间的消息（此方法如果 sentTime 有问题会影响消息排序，慎用！！）
 （该消息只插入本地数据库，实际不会发送给服务器和对方）
@@ -733,6 +741,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
                       receivedStatus:(RCReceivedStatus)receivedStatus
                              content:(RCMessageContent *)content;
 
+
 /*!
  插入接收的消息（此方法如果 sentTime
  有问题会影响消息排序，慎用！！）（该消息只插入本地数据库，实际不会发送给服务器和对方）
@@ -755,6 +764,27 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
                       receivedStatus:(RCReceivedStatus)receivedStatus
                              content:(RCMessageContent *)content
                             sentTime:(long long)sentTime;
+
+
+/*!
+ 批量插入接收的消息（该消息只插入本地数据库，实际不会发送给服务器和对方）
+ RCMessage 下列属性会被入库，其余属性会被抛弃
+ conversationType    会话类型
+ targetId            会话 ID
+ messageDirection    消息方向
+ senderUserId        发送者 ID
+ receivedStatus      接收状态；消息方向为接收方，并且 receivedStatus 为 ReceivedStatus_UNREAD 时，该条消息未读
+ sentStatus          发送状态
+ content             消息的内容
+ sentTime            消息发送的 Unix 时间戳，单位为毫秒 ，会影响消息排序
+ extra            RCMessage 的额外字段
+ 
+ @discussion 此方法不支持聊天室的会话类型。每批最多处理  500 条消息，超过 500 条返回 NO
+ @discussion 消息的未读会累加到回话的未读数上
+
+ @remarks 消息操作
+ */
+- (BOOL)batchInsertMessage:(NSArray<RCMessage *> *)msgs;
 
 /*!
  根据文件 URL 地址下载文件内容
@@ -909,7 +939,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  @param userData    用户自定义的监听器 Key 值，可以为 nil
 
  @discussion
- 设置 IMLibCore 的消息接收监听器请参考 RongCoreClient 的 setReceiveMessageDelegate:object:方法。
+ 设置 IMLibCore 的消息接收监听器请参考 RCCoreClient 的 setReceiveMessageDelegate:object:方法。
 
  userData 为您自定义的任意数据，SDK 会在回调的 onReceived:left:object:方法中传入作为 object 参数。
  您如果有设置多个监听，会只有最终的一个监听器起作用，您可以通过该 userData 值区分您设置的监听器。如果不需要直接设置为
@@ -1608,7 +1638,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
 /*!
  获取某些会话的总未读消息数 （聊天室会话除外）
 
- @param conversations       会话列表 （ RCConversation 对象只需要 conversationType 和 targetId ）
+ @param conversations       会话列表 （ RCConversation 对象只需要 conversationType 和 targetId，channelId 按需使用）
  @return                    传入会话列表的未读消息数
 
  @remarks 会话
@@ -1767,6 +1797,13 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
                             error:(void (^)(RCErrorCode status))errorBlock;
 
 #pragma mark - 输入状态提醒
+
+/**
+ typing 状态更新的时间，默认是 6s
+ 
+ @remarks 功能设置
+ */
+@property (nonatomic, assign) NSInteger typingUpdateSeconds;
 
 /*!
  设置输入状态的监听器
@@ -1930,7 +1967,7 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
 
  @remarks 数据获取
  */
-- (NSString *)getSDKVersion;
++ (NSString *)getVersion;
 
 /*!
  获取当前手机与服务器的时间差
@@ -2199,6 +2236,194 @@ deviceToken 是系统提供的，从苹果服务器获取的，用于 APNs 远�
  @remarks 高级功能
  */
 @property (nonatomic, weak) id<RCMessageExpansionDelegate> messageExpansionDelegate;
+
+#pragma mark - 标签
+/*!
+ 添加标签
+ 
+ @param tagInfo 标签信息。只需要设置标签信息的 tagId 和 tagName。
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @discussion 最多支持添加 20 个标签
+ @remarks 高级功能
+ */
+- (void)addTag:(RCTagInfo *)tagInfo
+       success:(void (^)(void))successBlock
+         error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 移除标签
+ 
+ @param tagId 标签 ID
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @remarks 高级功能
+ */
+- (void)removeTag:(NSString *)tagId
+          success:(void (^)(void))successBlock
+            error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 更新标签信息
+ 
+ @param tagInfo 标签信息。只支持修改标签信息的 tagName
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @remarks 高级功能
+ */
+- (void)updateTag:(RCTagInfo *)tagInfo
+          success:(void (^)(void))successBlock
+            error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+
+/*!
+ 获取标签列表
+ 
+ @return 标签列表
+ @remarks 高级功能
+ */
+- (NSArray<RCTagInfo *> *)getTags;
+
+/*!
+ 标签变化监听器
+ 
+ @discussion 标签添加移除更新会触发此监听器，用于多端同步
+ 
+ @remarks 高级功能
+ */
+@property (nonatomic, weak) id<RCTagDelegate> tagDelegate;
+
+/*!
+ 添加会话到指定标签
+ 
+ @param tagId 标签 ID
+ @param conversationIdentifiers 会话信息列表
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @discussion 每次添加会话个数最大为 1000。最多支持添加 1000 个会话，如果标签添加的会话总数已超过 1000，会自动覆盖早期添加的会话
+ @remarks 高级功能
+ */
+- (void)addConversationsToTag:(NSString *)tagId
+      conversationIdentifiers:(NSArray<RCConversationIdentifier *> *)conversationIdentifiers
+                      success:(void (^)(void))successBlock
+                        error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 从指定标签移除会话
+ 
+ @param tagId 标签 ID
+ @param conversationIdentifiers 会话信息列表
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @discussion 每次移除会话个数最大为 1000
+ @remarks 高级功能
+ */
+- (void)removeConversationsFromTag:(NSString *)tagId
+           conversationIdentifiers:(NSArray<RCConversationIdentifier *> *)conversationIdentifiers
+                           success:(void (^)(void))successBlock
+                             error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 从指定会话中移除标签
+
+ @param conversationIdentifier 会话信息
+ @param tagIds 标签 ID 列表
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @remarks 高级功能
+ */
+- (void)removeTagsFromConversation:(RCConversationIdentifier *)conversationIdentifier
+                            tagIds:(NSArray<NSString *> *)tagIds
+                           success:(void (^)(void))successBlock
+                             error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 获取会话的所有标签
+ 
+ @param conversationIdentifier 会话信息
+ @return  会话所属的标签列表
+ 
+ @remarks 高级功能
+ */
+- (NSArray<RCConversationTagInfo *> *)getTagsFromConversation:(RCConversationIdentifier *)conversationIdentifier;
+
+/*!
+ 分页获取标签中会话列表
+ 
+ @param tagId 标签 ID
+ @param timestamp            会话的时间戳（获取这个时间戳之前的会话列表，0表示从最新开始获取）
+ @param count                获取的数量（当实际取回的会话数量小于 count 值时，表明已取完数据）
+ @return                     会话 RCConversation 的列表
+ 
+ @remarks 高级功能
+ */
+- (NSArray<RCConversation *> *)getConversationsFromTagByPage:(NSString *)tagId
+                                                   timestamp:(long long)timestamp
+                                                       count:(int)count;
+
+/*!
+ 获取标签中会话消息未读数
+ 
+ @param tagId 标签 ID
+ @param isContain    是否包含免打扰会话
+ @return 会话消息未读数
+ 
+ @remarks 高级功能
+ */
+- (int)getUnreadCountByTag:(NSString *)tagId
+            containBlocked:(BOOL)isContain;
+
+/*!
+ 设置标签中的会话置顶
+ 
+ @param tagId 标签 ID
+ @param conversationIdentifier 会话信息
+ @param top 是否置顶
+ @param successBlock 成功的回调
+ @param errorBlock 失败的回调
+ 
+ @remarks 高级功能
+ */
+- (void)setConversationToTopInTag:(NSString *)tagId
+           conversationIdentifier:(RCConversationIdentifier *)conversationIdentifier
+                            isTop:(BOOL)top
+                          success:(void (^)(void))successBlock
+                            error:(void (^)(RCErrorCode errorCode))errorBlock;
+
+/*!
+ 获取标签中的会话置顶状态
+ 
+ @param conversationIdentifier 会话信息
+ @param tagId 标签 ID
+ @return 置顶状态
+ 
+ @remarks 高级功能
+ */
+- (BOOL)getConversationTopStatusInTag:(RCConversationIdentifier *)conversationIdentifier tagId:(NSString *)tagId;
+
+
+/*!
+ 会话标签变化监听器
+ 
+ @discussion 会话标签添加移除更新会触发此监听器，用于多端同步
+ 
+ @remarks 高级功能
+ */
+@property (nonatomic, weak) id<RCConversationTagDelegate> conversationTagDelegate;
+
+/*!
+ 缩略图压缩配置
+ 
+ @remarks 缩略图压缩配置，如果此处设置了配置就按照这个配置进行压缩。如果此处没有设置，会按照 RCConfig.plist 中的配置进行压缩。
+ */
+@property (nonatomic, strong) RCImageCompressConfig *imageCompressConfig;
+
 @end
 
 #endif
